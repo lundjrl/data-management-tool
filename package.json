@@ -2,11 +2,17 @@
   "name": "elysia-api",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "test": "bun test"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/bearer": "^0.8.0",
+    "@elysiajs/cors": "^0.8.0",
+    "@elysiajs/swagger": "^0.8.0",
+    "elysia": "latest",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "bun-types": "latest"
