@@ -12,3 +12,32 @@ services:
     ports: ['8055:8055']
     # setup a host mounted volume to sync changes to the container
     volumes: ['./:/home/bun/app']
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres
+    restart: always
+    ports: ['5432:5432']
+    environment:
+      POSTGRES_USER: example
+      POSTGRES_DB: main
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
+
+  adminer:
+    # image: adminer
+    # restart: always
+    # ports:
+    #   - 8080:8080

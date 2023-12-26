@@ -5,13 +5,18 @@
     "dev": "bun --watch src/index.ts",
     "build": "bun build src/index.ts",
     "start": "NODE_ENV=production bun src/index.ts",
-    "test": "bun test"
+    "test": "bun test",
+    "db:schema:pull": "prisma db pull",
+    "db:baseline": "prisma migrate diff",
+    "db:migrate:resolve": "prisma migrate resolve"
   },
   "dependencies": {
     "@elysiajs/bearer": "^0.8.0",
     "@elysiajs/cors": "^0.8.0",
     "@elysiajs/swagger": "^0.8.0",
+    "@prisma/client": "^5.7.1",
     "elysia": "latest",
+    "prisma": "^5.7.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {

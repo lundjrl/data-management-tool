@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model crew {
+  id       Int    @id @default(autoincrement())
+  username String @unique @db.VarChar(255)
+  duty     duty?
+}
+
+model duty {
+  id          Int     @id @default(autoincrement())
+  name        String?
+  crewmate_id Int     @unique
+  crew        crew    @relation(fields: [crewmate_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model monster {
+  id            Int      @id @default(autoincrement())
+  name          String?
+  is_skinwalker Boolean?
+}
