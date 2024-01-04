@@ -3,6 +3,7 @@ version: '3.9'
 
 services:
   app:
+    container_name: API
     image: 'oven/bun'
     # override default entrypoint allows us to do `bun install` before serving
     entrypoint: []
@@ -18,8 +19,9 @@ services:
         condition: service_healthy
 
   db:
+    container_name: postgres
     image: postgres
-    restart: always
+    restart: unless-stopped
     ports: ['5432:5432']
     environment:
       POSTGRES_USER: example
@@ -28,7 +30,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready']
+      test: ['CMD-SHELL', 'pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}']
       interval: 10s
       timeout: 5s
       retries: 5

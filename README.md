@@ -1,5 +1,9 @@
 # Great Asset!
 
+<div align="center">
+  <a href="">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=blue)](https://opensource.org/licenses/MIT)</a>
+</div>
+
 Building a great asset for the company.
 
 More info here: https://drive.google.com/drive/u/1/folders/1af3onOTX2v7sOIQcTjMO9r3A6XnZx8MW
@@ -8,18 +12,13 @@ More info here: https://drive.google.com/drive/u/1/folders/1af3onOTX2v7sOIQcTjMO
 
 ### Getting Started
 
-To get started with this template, simply paste this command into your terminal:
+To get started make sure you have Docker installed.
+After that's done, spin up the API and Database containers with
 
 ```bash
-bun create elysia ./elysia-example
+./start
 ```
 
-### Development
+Open http://localhost:8055/ with your browser to see the API running.
 
-To start the development server run:
-
-```bash
-bun run dev
-```
-
-Open http://localhost:3000/ with your browser to see the result.
+The API has swagger doc support baked in, check the result at http://localhost:8055/swagger
