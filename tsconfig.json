@@ -14,8 +14,8 @@
     // "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
     // "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
     // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
-    "baseUrl": "./src",
-    "rootDir": "./src",
+    "baseUrl": "./",
+    "rootDir": "./",
     /* Modules */
     "module": "ES2022" /* Specify what module code is generated. */,
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
@@ -28,7 +28,7 @@
     "noImplicitReturns": false,
     "noImplicitThis": true,
     "paths": {
-      "~/*": ["./src"]
+      "~/*": ["./src/*"]
     },
     "types": ["bun-types"] /* Specify type package names to be included without being referenced in a source file. */,
     "emitBOM": true /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */,

@@ -4,13 +4,9 @@ import { returnSchema } from './utils/returnSchema'
 import { swagger } from '@elysiajs/swagger'
 import { cors } from '@elysiajs/cors'
 import bearer from '@elysiajs/bearer'
-import { findFirst } from './services/orm/findFirst'
-import { create } from './services/orm/create'
-import { findMany } from './services/orm/findMany'
-import { deleteOne } from './services/orm/delete'
-import { update } from './services/orm/update'
+import schemaRoutes from '~/routes/schema'
 
-export const app = new Elysia()
+const app = new Elysia()
 
 // Enable swagger docs, access with /swagger endpoint
 app.use(swagger())
@@ -46,30 +42,7 @@ app.get('/cookie', ({ cookie: { name } }) => {
   }
 })
 
-app.get('/crew/:id', async ({ params: { id }, query }) => {
-  const result = await findFirst('crew', { where: { ...query, id } })
-  return result
-})
-
-app.get('/crew', async ({ query }) => {
-  const result = await findMany('crew', query)
-  return result
-})
-
-app.post('/crew', async ({ body }) => {
-  const result = await create('crew', body)
-  return result
-})
-
-app.patch('/crew/:id', async ({ query }) => {
-  const result = await update('crew', query)
-  return result
-})
-
-app.delete('/crew/:id', async ({ params: { id } }) => {
-  const result = await deleteOne('crew', { id })
-  return result
-})
+app.use(schemaRoutes)
 
 app.listen(8055)
 
