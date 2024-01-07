@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
-
     /* Language and Environment */
     "target": "ES2021" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
@@ -15,7 +14,8 @@
     // "noLib": true,                                    /* Disable including any library files, including the default lib.d.ts. */
     // "useDefineForClassFields": true,                  /* Emit ECMAScript-standard-compliant class fields. */
     // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
-
+    "baseUrl": "./src",
+    "rootDir": "./src",
     /* Modules */
     "module": "ES2022" /* Specify what module code is generated. */,
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
@@ -24,9 +24,13 @@
     // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
-    "types": [
-      "bun-types"
-    ] /* Specify type package names to be included without being referenced in a source file. */,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "paths": {
+      "~/*": ["./src"]
+    },
+    "types": ["bun-types"] /* Specify type package names to be included without being referenced in a source file. */,
     "emitBOM": true /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
     // "preserveSymlinks": true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
@@ -35,6 +39,10 @@
     /* Type Checking */
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "noEmit": true 
-  }
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": ["*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

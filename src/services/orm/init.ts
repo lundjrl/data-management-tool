@@ -1,6 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client'
 
 // INFO: Add ORM config options here
-const ormOptions = {};
+const ormOptions = {}
 
-export const prisma = new PrismaClient(ormOptions);
+export const prisma = new PrismaClient(ormOptions)
