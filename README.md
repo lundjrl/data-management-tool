@@ -1,8 +1,6 @@
 # Great Asset!
 
-<div align="center">
-  <a href="">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=blue)](https://opensource.org/licenses/MIT)</a>
-</div>
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=blue)
 
 Building a great asset for the company.
 
