@@ -5,6 +5,7 @@ import { swagger } from '@elysiajs/swagger'
 import { cors } from '@elysiajs/cors'
 import bearer from '@elysiajs/bearer'
 import schemaRoutes from '~/routes/schema'
+import ormRoutes from '~/routes/orm'
 
 const app = new Elysia()
 
@@ -42,6 +43,7 @@ app.get('/cookie', ({ cookie: { name } }) => {
   }
 })
 
+app.use(ormRoutes)
 app.use(schemaRoutes)
 
 app.listen(8055)
