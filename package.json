@@ -8,7 +8,8 @@
     "test": "bun test",
     "db:schema:pull": "prisma db pull",
     "db:baseline": "prisma migrate diff",
-    "db:migrate:resolve": "prisma migrate resolve"
+    "db:migrate:resolve": "prisma migrate resolve",
+    "db:help": "bun run prisma --help"
   },
   "dependencies": {
     "@elysiajs/bearer": "^0.8.0",

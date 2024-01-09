@@ -6,6 +6,7 @@ import { cors } from '@elysiajs/cors'
 import bearer from '@elysiajs/bearer'
 import schemaRoutes from '~/routes/schema'
 import ormRoutes from '~/routes/orm'
+import { log } from './services/logger/log'
 
 const app = new Elysia()
 
@@ -48,4 +49,4 @@ app.use(schemaRoutes)
 
 app.listen(8055)
 
-console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)
+log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)
