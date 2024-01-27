@@ -1,50 +1,52 @@
-import { Elysia } from 'elysia';
-import { generateTempObject } from './utils/generateTempObject';
-import { returnSchema } from './utils/returnSchema';
-import { swagger } from '@elysiajs/swagger';
-import { cors } from '@elysiajs/cors';
-import bearer from '@elysiajs/bearer';
+import { Elysia } from 'elysia'
+import { generateTempObject } from './utils/generateTempObject'
+import { returnSchema } from './utils/returnSchema'
+import { swagger } from '@elysiajs/swagger'
+import { cors } from '@elysiajs/cors'
+import bearer from '@elysiajs/bearer'
+import schemaRoutes from '~/routes/schema'
+import ormRoutes from '~/routes/orm'
+import { log } from './services/logger/log'
 
-const app = new Elysia();
+const app = new Elysia()
 
 // Enable swagger docs, access with /swagger endpoint
-app.use(swagger());
+app.use(swagger())
 
 // Enable CORS config
-app.use(cors());
+app.use(cors())
 
-app.get('/', generateTempObject);
+app.get('/', generateTempObject)
 
-app.get('/schema', returnSchema);
+app.get('/schema', returnSchema)
 
 // Example parse bearer token from request.
 app.use(bearer()).get('/auth', ({ bearer }) => bearer, {
   beforeHandle({ bearer, set }) {
     if (!bearer) {
-      set.status = 400;
-      set.headers[
-        'WWW-Authenticate'
-      ] = `Bearer realm='sign', error="invalid_request"`;
+      set.status = 400
+      set.headers['WWW-Authenticate'] = `Bearer realm='sign', error="invalid_request"`
 
-      return 'Unauthorized';
+      return 'Unauthorized'
     }
   },
-});
+})
 
 // Example get cookie from request.
 app.get('/cookie', ({ cookie: { name } }) => {
   // Get
-  name.value;
+  name.value
 
   // Set
-  name.value = 'New Value';
+  name.value = 'New Value'
   name.value = {
     hello: 'world',
-  };
-});
+  }
+})
 
-app.listen(8055);
+app.use(ormRoutes)
+app.use(schemaRoutes)
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+app.listen(8055)
+
+log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)

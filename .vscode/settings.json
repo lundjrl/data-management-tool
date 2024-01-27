@@ -1,3 +1,6 @@
 {
+  "search.exclude": {
+    "**/node_modules": true
+  },
   "cSpell.words": ["bunx", "elysia", "elysiajs", "Uncapitalize"]
 }

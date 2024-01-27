@@ -8,19 +8,31 @@
     "test": "bun test",
     "db:schema:pull": "prisma db pull",
     "db:baseline": "prisma migrate diff",
-    "db:migrate:resolve": "prisma migrate resolve"
+    "db:migrate:resolve": "prisma migrate resolve",
+    "db:help": "bun run prisma --help"
   },
   "dependencies": {
     "@elysiajs/bearer": "^0.8.0",
     "@elysiajs/cors": "^0.8.0",
     "@elysiajs/swagger": "^0.8.0",
     "@prisma/client": "^5.7.1",
+    "@prisma/migrate": "^5.7.1",
     "elysia": "latest",
     "prisma": "^5.7.1",
+    "typescript": "^5.3.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "bun-types": "latest",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "prettier": "^3.1.1"
   },
   "module": "src/index.js"
 }

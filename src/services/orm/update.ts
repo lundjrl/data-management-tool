@@ -1,5 +1,5 @@
 import { prisma } from './init'
-import type { Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 
 type ModelName = Uncapitalize<Prisma.ModelName>
 type FN = <T>(
@@ -10,6 +10,7 @@ type FN = <T>(
   // | Prisma.dutyCreateInput
 ) => Promise<T>
 
-export const createModel: FN = async (key, params) => {
-  return await prisma[key].delete(params)
+// TODO: Fix types here for dynamic update
+export const update: FN = async (key, params) => {
+  return await prisma[key].update({ data: params })
 }
