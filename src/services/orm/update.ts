@@ -14,3 +14,7 @@ type FN = <T>(
 export const update: FN = async (key, params) => {
   return await prisma[key].update({ data: params })
 }
+
+export const updateMany: FN = async (key, params) => {
+  return await prisma[key].updateMany({ data: params })
+}

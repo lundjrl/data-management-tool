@@ -1,4 +1,4 @@
-FROM oven/bun
+FROM imbios/bun-node
 
 WORKDIR /app
 

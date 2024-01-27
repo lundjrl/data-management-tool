@@ -14,6 +14,7 @@
   "dependencies": {
     "@elysiajs/bearer": "^0.8.0",
     "@elysiajs/cors": "^0.8.0",
+    "@elysiajs/html": "^0.8.0",
     "@elysiajs/swagger": "^0.8.0",
     "@prisma/client": "^5.7.1",
     "@prisma/migrate": "^5.7.1",

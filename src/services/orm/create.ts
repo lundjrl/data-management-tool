@@ -14,3 +14,7 @@ type FN = <T>(
 export const create: FN = async (key, params) => {
   return await prisma[key].create({ data: params })
 }
+
+export const createMany: FN = async (key, params) => {
+  return await prisma[key].createMany({ data: params })
+}

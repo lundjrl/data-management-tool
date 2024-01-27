@@ -14,3 +14,7 @@ type FN = <T>(
 export const deleteOne: FN = async (key, params) => {
   return await prisma[key].delete({ data: params })
 }
+
+export const deleteMany: FN = async (key, params) => {
+  return await prisma[key].deleteMany({ data: params })
+}
