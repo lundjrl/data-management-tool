@@ -8,6 +8,7 @@ import schemaRoutes from '~/routes/schema'
 import ormRoutes from '~/routes/orm'
 import { log } from './services/logger/log'
 
+import bun from 'bun'
 const app = new Elysia()
 
 // Enable swagger docs, access with /swagger endpoint
@@ -17,7 +18,12 @@ app.use(swagger())
 app.use(cors())
 
 app.get('/', generateTempObject)
+app.get('/health', (req, res) => {
+  res.send(bun.version)
+})
 
+app.on('request', console.log)
+app.on('response', console.log)
 app.get('/schema', returnSchema)
 
 // Example parse bearer token from request.
