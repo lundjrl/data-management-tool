@@ -8,6 +8,7 @@ import schemaRoutes from '~/routes/schema'
 import ormRoutes from '~/routes/orm'
 import { log } from './services/logger/log'
 import healthRoutes from '~/routes/health'
+import { env } from '../env'
 
 const app = new Elysia()
 
@@ -51,6 +52,6 @@ app.use(healthRoutes)
 app.use(ormRoutes)
 app.use(schemaRoutes)
 
-app.listen(8055)
+app.listen(env().PORT)
 
 log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)
