@@ -9,7 +9,8 @@
     "db:schema:pull": "prisma db pull",
     "db:baseline": "prisma migrate diff",
     "db:migrate:resolve": "prisma migrate resolve",
-    "db:help": "bun run prisma --help"
+    "db:help": "bun run prisma --help",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@adonisjs/env": "^5.0.1",
