@@ -11,19 +11,6 @@ jobs:
     name: tsc
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: '1.0.21'
-
-      - name: Install Dependencies
-        id: install
-        run: bun install
-
-      - name: Check Types
-        id: check-types
-        run: bun run tsc
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install && bunx tsc
