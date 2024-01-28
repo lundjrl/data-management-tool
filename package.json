@@ -12,6 +12,7 @@
     "db:help": "bun run prisma --help"
   },
   "dependencies": {
+    "@adonisjs/env": "^5.0.1",
     "@elysiajs/bearer": "^0.8.0",
     "@elysiajs/cors": "^0.8.0",
     "@elysiajs/html": "^0.8.0",
