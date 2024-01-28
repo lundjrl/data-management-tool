@@ -4,7 +4,7 @@ version: '3.9'
 services:
   app:
     container_name: API
-    image: 'oven/bun'
+    image: 'imbios/bun-node'
     # override default entrypoint allows us to do `bun install` before serving
     entrypoint: []
     # execute bun install before we start the dev server in watch mode

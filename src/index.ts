@@ -3,11 +3,13 @@ import { generateTempObject } from './utils/generateTempObject'
 import { returnSchema } from './utils/returnSchema'
 import { swagger } from '@elysiajs/swagger'
 import { cors } from '@elysiajs/cors'
+import { compression } from 'elysia-compression'
 import bearer from '@elysiajs/bearer'
 import schemaRoutes from '~/routes/schema'
 import ormRoutes from '~/routes/orm'
 import { log } from './services/logger/log'
 import healthRoutes from '~/routes/health'
+import uiRoutes from '~/routes/ui'
 import { env } from '../env'
 
 const app = new Elysia()
@@ -18,9 +20,10 @@ app.use(swagger())
 // Enable CORS config
 app.use(cors())
 
-app.get('/', generateTempObject)
+// Enable compression
+app.use(compression())
 
-// app.get('/health', () => "it's running")
+app.get('/', generateTempObject)
 
 app.get('/schema', returnSchema)
 
@@ -48,9 +51,11 @@ app.get('/cookie', ({ cookie: { name } }) => {
   }
 })
 
+// Add additional routes to API
 app.use(healthRoutes)
 app.use(ormRoutes)
 app.use(schemaRoutes)
+app.use(uiRoutes)
 
 app.listen(env().PORT)
 
