@@ -9,7 +9,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+      day: "saturday"
 
     commit-message:
-      prefix: "[npm] BeepBoop new security update "
+      prefix: "[npm] Beep boop new security update "
 
