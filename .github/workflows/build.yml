@@ -1,0 +1,20 @@
+name: build api
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: build
+        working-directory: ${{ github.workspace }}/
+        run: bun install
+      - run: echo ${{ github.workspace }}/
+      - run: bun build --entrypoints src/index.ts --outdir ./out
