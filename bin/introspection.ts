@@ -7,6 +7,6 @@ export const introspection = () => {
 
   const consoleMsg = result.success ? 'Success' : 'Error'
 
-  log(consoleMsg)
+  log('log', consoleMsg)
   return
 }
