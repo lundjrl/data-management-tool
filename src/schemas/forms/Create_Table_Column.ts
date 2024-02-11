@@ -6,7 +6,7 @@ import { Column_Relationship_Schema } from '../Column_Relationship'
 export const Create_Table_Column_Schema = z.object({
   name: z.string(),
   relationship: z.optional(Column_Relationship_Schema),
-  type: z.string(), // TODO: This should probably be native database types. EX: "serial PRIMARY KEY NOT NULL"
+  type: z.union([z.literal('SERIAL'), z.literal('TEXT'), z.literal('VARCHAR'), z.literal('TIMESTAMP')]), // TODO: This should probably be native database types. EX: "serial PRIMARY KEY NOT NULL"
   length: z.optional(z.number()),
   nullable: z.optional(z.boolean()),
   unique: z.optional(z.boolean()),

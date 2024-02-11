@@ -9,6 +9,8 @@ enum RelationshipType {
 export const Column_Relationship_Schema = z.object({
   foreignKey: z.string(),
   primaryKey: z.string(),
+  referencedColumn: z.string(),
+  referencedTable: z.string(),
   relatedTo: z.string(),
   relationshipType: z.nativeEnum(RelationshipType),
 })

@@ -11,6 +11,7 @@ import { log } from './services/logger/log'
 import fnRoutes from '~/routes/fn'
 import healthRoutes from '~/routes/health'
 import uiRoutes from '~/routes/ui'
+import databaseRoutes from '~/routes/database'
 import { env } from '../env'
 
 const app = new Elysia()
@@ -53,6 +54,7 @@ app.get('/cookie', ({ cookie: { name } }) => {
 })
 
 // Add additional routes to API
+app.use(databaseRoutes)
 app.use(fnRoutes)
 app.use(healthRoutes)
 app.use(ormRoutes)
