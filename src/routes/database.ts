@@ -3,9 +3,9 @@ import { createTable } from '~/services/database/tables'
 
 const app = new Elysia({ prefix: '/database' })
 
-app.post('/create', async (req, res) => {
+app.post('/create', async req => {
   const data = await createTable(req.body)
-  res.send({ status: 200, data })
+  return { status: 200, data }
 })
 
 export default app
