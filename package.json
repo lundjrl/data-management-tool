@@ -27,6 +27,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@ts-safeql/eslint-plugin": "^2.0.3",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.2",
     "bun-types": "latest",
