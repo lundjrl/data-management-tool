@@ -1,5 +1,11 @@
 import { Elysia } from 'elysia'
-import { createBulkColumns, createColumn, deleteBulkColumns, deleteColumn } from '~/services/database/columns'
+import {
+  alterColumn,
+  createBulkColumns,
+  createColumn,
+  deleteBulkColumns,
+  deleteColumn,
+} from '~/services/database/columns'
 import { createTable, deleteTable } from '~/services/database/tables'
 
 const app = new Elysia({ prefix: '/database' })
@@ -11,6 +17,11 @@ app.post('/create/table', async req => {
 
 app.post('/delete/table', async req => {
   const data = await deleteTable(req.body)
+  return { status: 200, data }
+})
+
+app.post('/alter/column', async req => {
+  const data = await alterColumn(req.body)
   return { status: 200, data }
 })
 

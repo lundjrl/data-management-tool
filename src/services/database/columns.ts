@@ -6,6 +6,28 @@ import type { Create_Table } from '~/schemas/forms/Create_Table'
 type FN = (tableData: Create_Table) => Promise<boolean>
 
 /**
+ * Alter an existing table column.
+ * @param tableData
+ * @returns boolean
+ */
+export const alterColumn: FN = async tableData => {
+  const { name, columns } = tableData
+
+  const { name: columnName, type } = columns[0]
+
+  const query = `
+    ALTER TABLE ${name}
+    MODIFY COLUMN ${columnName} ${type};
+  `
+
+  log('log', `EXECUTING QUERY: ${query}`)
+
+  const result = await prisma.$queryRaw`${Prisma.raw(query)}`
+
+  return !!result
+}
+
+/**
  * Create a new table column.
  * @param tableData
  * @returns boolean
