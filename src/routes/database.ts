@@ -9,9 +9,12 @@ import {
   renameBulkColumns,
   renameColumn,
 } from '~/services/database/columns'
+import { getJSONSchema } from '~/services/database/json'
 import { createTable, deleteTable } from '~/services/database/tables'
 
 const app = new Elysia({ prefix: '/database' })
+
+app.get('/json/schema', getJSONSchema)
 
 app.post('/create/table', async req => {
   const data = await createTable(req.body)

@@ -23,6 +23,7 @@
     "elysia": "latest",
     "elysia-compression": "latest",
     "prisma": "^5.7.1",
+    "prisma-schema-dsl": "^2.2.0",
     "typescript": "^5.3.3",
     "zod": "^3.22.4"
   },

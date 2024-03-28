@@ -27,3 +27,7 @@ After that's done, spin up the API and Database containers with
 Open http://localhost:8055/ with your browser to see the API running.
 
 The API has swagger doc support baked in, check the result at http://localhost:8055/swagger
+
+### Adding ENV variables
+
+All Env vars need to be added to `.env` as well as typed in `./env.ts` for type safety.
