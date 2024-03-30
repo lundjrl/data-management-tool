@@ -11,6 +11,9 @@
     "db:migrate:resolve": "prisma migrate resolve",
     "db:help": "bun run prisma --help"
   },
+  "prisma": {
+    "seed": "bun prisma/seed.ts --target bun"
+  },
   "dependencies": {
     "@adonisjs/env": "^5.0.1",
     "@elysiajs/bearer": "latest",
