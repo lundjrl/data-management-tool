@@ -51,7 +51,7 @@ type FN = (tableData: Create_Table) => Promise<boolean>
  * @returns boolean
  */
 export const createTable: FN = async tableData => {
-  const { name, columns } = tableData
+  const { name, columns = [] } = tableData
 
   const queryString = buildQuery(columns)
 

@@ -1,4 +1,6 @@
 import { Elysia } from 'elysia'
+import { Create_Table_Schema } from '~/schemas/forms/Create_Table'
+import { Create_Table_Column_Schema } from '~/schemas/forms/Create_Table_Column'
 import {
   alterBulkColumn,
   alterColumn,
@@ -16,53 +18,60 @@ const app = new Elysia({ prefix: '/database' })
 
 app.get('/json/schema', getJSONSchema)
 
-app.post('/create/table', async req => {
-  const data = await createTable(req.body)
+app.post('/create/table', async ({ body }) => {
+  const verified = Create_Table_Schema.safeParse(body)
+
+  if (!verified.success) return { status: 400, data: verified.error }
+
+  const data = await createTable(verified.data)
   return { status: 200, data }
 })
 
-app.post('/delete/table', async req => {
-  const data = await deleteTable(req.body)
+app.post('/delete/table', async ({ body }) => {
+  const data = await deleteTable(body)
   return { status: 200, data }
 })
 
-app.post('/alter/column', async req => {
-  const data = await alterColumn(req.body)
+app.post('/alter/column', async ({ body }) => {
+  const data = await alterColumn(body)
   return { status: 200, data }
 })
 
-app.post('/alter/bulk/column', async req => {
-  const data = await alterBulkColumn(req.body)
+app.post('/alter/bulk/column', async ({ body }) => {
+  const data = await alterBulkColumn(body)
   return { status: 200, data }
 })
 
-app.post('/create/column', async req => {
-  const data = await createColumn(req.body)
+app.post('/create/column', async ({ body }) => {
+  const verified = Create_Table_Schema.safeParse(body)
+  if (!verified.success) return { status: 400, data: verified.error }
+
+  const data = await createColumn(verified.data)
   return { status: 200, data }
 })
 
-app.post('/create/bulk/column', async req => {
-  const data = await createBulkColumns(req.body)
+app.post('/create/bulk/column', async ({ body }) => {
+  const data = await createBulkColumns(body)
   return { status: 200, data }
 })
 
-app.post('/delete/column', async req => {
-  const data = await deleteColumn(req.body)
+app.post('/delete/column', async ({ body }) => {
+  const data = await deleteColumn(body)
   return { status: 200, data }
 })
 
-app.post('/delete/bulk/column', async req => {
-  const data = await deleteBulkColumns(req.body)
+app.post('/delete/bulk/column', async ({ body }) => {
+  const data = await deleteBulkColumns(body)
   return { status: 200, data }
 })
 
-app.post('/rename/column', async req => {
-  const data = await renameColumn(req.body)
+app.post('/rename/column', async ({ body }) => {
+  const data = await renameColumn(body)
   return { status: 200, data }
 })
 
-app.post('/rename/bulk/column', async req => {
-  const data = await renameBulkColumns(req.body)
+app.post('/rename/bulk/column', async ({ body }) => {
+  const data = await renameBulkColumns(body)
   return { status: 200, data }
 })
 
