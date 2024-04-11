@@ -3,9 +3,9 @@ import { Prisma } from '@prisma/client'
 import { log } from '../logger/log'
 
 import type { Alter_Table } from '~/schemas/forms/Alter_Table'
-import type { Create_Table } from '~/schemas/forms/Create_Table'
+import type { Table } from '~/schemas/forms/Table'
 
-type FN = (tableData: Create_Table) => Promise<boolean>
+type FN = (tableData: Table) => Promise<boolean>
 
 /**
  * Alter an existing table column.

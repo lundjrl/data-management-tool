@@ -9,4 +9,4 @@ export const Alter_Table_Column_Schema = z.object({
   validationMessage: z.optional(z.string().describe("Validation message to throw if there's an error")),
 })
 
-export type Create_Table_Column_Type = z.infer<typeof Alter_Table_Column_Schema>
+export type Alter_Table_Column_Type = z.infer<typeof Alter_Table_Column_Schema>

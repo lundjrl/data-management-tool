@@ -23,7 +23,8 @@
     "paths": {
       "~/*": ["./src/*"]
     },
-    "types": ["bun-types"] /* Specify type package names to be included without being referenced in a source file. */,
+    "isolatedModules": true,
+    "types": [] /* Specify type package names to be included without being referenced in a source file. */,
     // "emitBOM": true /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
     "preserveSymlinks": false /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */,
@@ -37,5 +38,5 @@
     "noUnusedParameters": true
   },
   "include": ["*.ts", "**/*.ts", "**/*.tsx", "*.json"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist", "node_modules/elysia/dist"]
 }

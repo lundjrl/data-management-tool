@@ -3,7 +3,7 @@ import { Column_Relationship_Schema } from '../Column_Relationship'
 
 // INFO: Prisma will be the source of truth for database types but this is validation to insert into a database.
 
-export const Create_Table_Column_Schema = z.object({
+export const Table_Column_Schema = z.object({
   name: z.string(),
   relationship: z.optional(Column_Relationship_Schema),
   type: z.union([z.literal('SERIAL'), z.literal('TEXT'), z.literal('VARCHAR'), z.literal('TIMESTAMP')]), // TODO: This should probably be native database types. EX: "serial PRIMARY KEY NOT NULL"
@@ -18,4 +18,4 @@ export const Create_Table_Column_Schema = z.object({
   validationMessage: z.optional(z.string().describe("Validation message to throw if there's an error")),
 })
 
-export type Create_Table_Column_Type = z.infer<typeof Create_Table_Column_Schema>
+export type Table_Column_Type = z.infer<typeof Table_Column_Schema>

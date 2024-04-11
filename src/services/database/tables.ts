@@ -1,9 +1,10 @@
-import type { Create_Table } from '~/schemas/forms/Create_Table'
 import { prisma } from '../orm/init'
 import { Prisma } from '@prisma/client'
 import { log } from '../logger/log'
 
-const buildQuery = (columns: Create_Table['columns']): string => {
+import type { Table } from '~/schemas/forms/Table'
+
+const buildQuery = (columns: Table['columns']): string => {
   const s: string[] = []
 
   columns.forEach((el, index) => {
@@ -43,7 +44,7 @@ const buildQuery = (columns: Create_Table['columns']): string => {
   return s.toString()
 }
 
-type FN = (tableData: Create_Table) => Promise<boolean>
+type FN = (tableData: Table) => Promise<boolean>
 
 /**
  * Create a new database table.
