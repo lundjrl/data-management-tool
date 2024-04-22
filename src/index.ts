@@ -12,6 +12,7 @@ import fnRoutes from '~/routes/fn'
 import healthRoutes from '~/routes/health'
 import uiRoutes from '~/routes/ui'
 import databaseRoutes from '~/routes/database'
+import searchRoutes from '~/routes/search'
 import { env } from '../env'
 
 const app = new Elysia()
@@ -59,6 +60,7 @@ app.use(fnRoutes)
 app.use(healthRoutes)
 app.use(ormRoutes)
 app.use(schemaRoutes)
+app.use(searchRoutes)
 app.use(uiRoutes)
 
 app.listen(env().PORT)
