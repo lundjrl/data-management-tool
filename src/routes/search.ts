@@ -1,42 +1,25 @@
 import { Elysia } from 'elysia'
-import { prisma } from '~/services/orm/init'
-
-const ORM_DEFAULT_DB = 'public'
+import { getCollections } from '~/services/orm/getCollections'
 
 const app = new Elysia({ prefix: '/search' })
 
-app.post('/test', e => {
-  return e
-})
+const search = async (query: string, filters?: string, pagination?: string) => {
+  const collections = await getCollections()
 
-app.get('/:query', async ({ params: { query } }) => query)
-app.get('/:query/:filters', async ({ params: { query, filters } }) => ({ query, filters }))
+  const q = collections
+    .map(
+      (el, index) =>
+        `select coalesce(id, null), coalesce(name, '') from ${el} ${index === collections.length - 1 ? '' : 'union'} `,
+    )
+    .join('')
 
-app.get('/:query/:filters/:pagination', async ({ params: { query, filters, pagination } }) => {
-  console.log('JAmes ENDPOINT')
-  const dbTables = await prisma.$queryRaw<{ table_name: string }[]>`
-    select table_name
-    from information_schema.tables
-    where table_type='BASE TABLE'
-      and table_schema = ${ORM_DEFAULT_DB}
-  `
+  return { collections, q, query, filters, pagination }
+}
 
-  const tables = dbTables.map(el => el.table_name)
-
-  // TODO: Query string builder here to prep join stmt.
-
-  const results = await prisma.$queryRaw`
-    -- select * from "crew"
-    --   union
-    -- select * from "monster"
-    --   union
-    select * from "duty"
-    -- where column like '%query%'
-      -- order by "createdAt"
-      -- limit 10
-`
-
-  return { dbTables, query, filters, pagination, results }
-})
+app.get('/:query', ({ params: { query } }) => search(query))
+app.get('/:query/:filters', ({ params: { query, filters } }) => search(query, filters))
+app.get('/:query/:filters/:pagination', ({ params: { query, filters, pagination } }) =>
+  search(query, filters, pagination),
+)
 
 export default app
