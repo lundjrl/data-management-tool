@@ -16,7 +16,9 @@ import { createTable, deleteTable } from '~/services/database/tables'
 
 const app = new Elysia({ prefix: '/database' })
 
-app.get('/json/schema', getJSONSchema)
+app.get('/json/schema/', getJSONSchema)
+
+app.get('/json/schema/:collection', ({ params: { collection } }) => getJSONSchema(collection))
 
 app.post('/create/table', async ({ body }) => {
   const verified = Table_Schema.safeParse(body)
