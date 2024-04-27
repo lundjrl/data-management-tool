@@ -15,7 +15,7 @@
     "seed": "bun prisma/seed.ts --target bun"
   },
   "dependencies": {
-    "@adonisjs/env": "^5.0.1",
+    "@adonisjs/env": "^6.0.1",
     "@elysiajs/bearer": "latest",
     "@elysiajs/cors": "latest",
     "@elysiajs/html": "latest",
