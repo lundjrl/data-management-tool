@@ -11,7 +11,7 @@ const createCrew = (): Promise<unknown>[] => {
         where: { id: index + 1 },
         update: {},
         create: {
-          username: el,
+          name: el,
         },
       }),
   )

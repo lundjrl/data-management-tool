@@ -18,6 +18,9 @@ services:
       db:
         condition: service_healthy
 
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
   db:
     container_name: postgres
     image: postgres
@@ -35,6 +38,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
 
 volumes:
   pgdata:

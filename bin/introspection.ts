@@ -3,7 +3,7 @@ import { log } from '../src/services/logger/log'
 
 // Pull the latest version of the DB and update ORM schema.
 export const introspection = () => {
-  const result = Bun.spawnSync({ cmd: ['bunx', 'prisma', 'db', 'pull'] })
+  const result = Bun.spawnSync({ cmd: ['bun', 'run', 'prisma', 'db', 'pull'] })
   const buf = result.stdout
 
   const str = buf.toString()

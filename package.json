@@ -7,6 +7,7 @@
     "start": "NODE_ENV=production bun src/index.ts",
     "test": "bun test",
     "db:schema:pull": "prisma db pull",
+    "db:schema:push": "prisma db push",
     "db:baseline": "prisma migrate diff",
     "db:migrate:resolve": "prisma migrate resolve",
     "db:help": "bun run prisma --help"
