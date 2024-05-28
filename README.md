@@ -1,5 +1,5 @@
 <div>
-<table border="0">
+<table border="0" style="background-color: none; width: 100%">
  <tr>
  </tr>
  <tr>
