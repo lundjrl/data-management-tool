@@ -1,5 +1,9 @@
 # Great Asset!
 
+<p align="center">
+  <img src="images/Logo.png" alt="Data Management Tool's mascot">
+</p>
+
 <div align="center">
 
 <a href="">[![Passes build](https://github.com/lundjrl/great-asset/actions/workflows/build.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/build.yml)</a>
