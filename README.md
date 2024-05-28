@@ -1,16 +1,24 @@
-# Great Asset!
-
-<p align="center">
-  <img src="images/Logo.png" alt="Data Management Tool's mascot">
-</p>
-
 <div align="center">
-
-<a href="">[![Passes build](https://github.com/lundjrl/great-asset/actions/workflows/build.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/build.yml)</a>
-<a href="">[![Passes TSC checks](https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml)
-</a>
-<a href="">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=blue)](https://opensource.org/licenses/MIT)</a>
-
+<table border="0">
+ <tr>
+    <td>
+    </td>
+    <td></td>
+ </tr>
+ <tr>
+    <td align="center">
+      <img src="images/Logo.png" alt="Data Management Tool's mascot">
+    </td>
+    <td>
+    <div align="center">
+      <a href="">[![Passes build](https://github.com/lundjrl/great-asset/actions/workflows/build.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/build.yml)</a>
+      <a href="">[![Passes TSC checks](https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml)
+      </a>
+      <a href="">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=blue)](https://opensource.org/licenses/MIT)</a>
+</div>
+    </td>
+ </tr>
+</table>
 </div>
 
 Building a great asset for the company.
