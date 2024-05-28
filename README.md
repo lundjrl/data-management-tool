@@ -1,27 +1,35 @@
-<div align="center">
+<div>
 <table border="0">
  <tr>
-    <td>
-    </td>
-    <td></td>
  </tr>
  <tr>
-    <td align="center">
-      <img src="images/Logo.png" alt="Data Management Tool's mascot">
+    <td>
+      <img alt="Data Management Tool's mascot" src="images/Logo.png" width="300px">
     </td>
     <td>
-    <div align="center">
-      <a href="">[![Passes build](https://github.com/lundjrl/great-asset/actions/workflows/build.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/build.yml)</a>
-      <a href="">[![Passes TSC checks](https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml/badge.svg)](https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml)
-      </a>
-      <a href="">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?color=blue)](https://opensource.org/licenses/MIT)</a>
-</div>
+      <div>
+        <h1>Data Management Tool</h1>
+        <p>A small, organized, schema management API</p>
+      </div>
+      <div style="margin-top: 1rem">
+        <a href="https://github.com/lundjrl/great-asset/actions/workflows/build.yml">
+          <img alt="Passes Build" src="https://github.com/lundjrl/great-asset/actions/workflows/build.yml/badge.svg" />
+        </a>
+      </div>
+      <div style="margin-top: 1rem">
+        <a href="https://opensource.org/licenses/MIT">
+          <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg?color=blue" />
+        </a>
+      </div>
+      <div style="margin-top: 1rem">
+        <a href="https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml">
+            <img alt="Passes TSC checks" src="https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml/badge.svg" />
+        </a>
+      </div>
     </td>
  </tr>
 </table>
 </div>
-
-Building a great asset for the company.
 
 More info here: https://drive.google.com/drive/u/1/folders/1af3onOTX2v7sOIQcTjMO9r3A6XnZx8MW
 
