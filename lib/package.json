@@ -1,0 +1,13 @@
+{
+  "name": "@lundjrl-npm/data-management-tool-sdk",
+  "version": "1.0.0",
+  "keywords": [
+    "data management",
+    "api",
+    "prisma",
+    "bun",
+    "typescript"
+  ],
+  "license": "MIT",
+  "module": "index.js"
+}

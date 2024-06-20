@@ -1,6 +1,6 @@
 {
-  "name": "elysia-api",
-  "version": "1.0.50",
+  "name": "data-management-tool",
+  "version": "1.0.0",
   "scripts": {
     "dev": "bun --watch src/index.ts --target bun",
     "build": "bun build src/index.ts --target bun",
@@ -8,9 +8,13 @@
     "test": "bun test",
     "db:schema:pull": "prisma db pull",
     "db:schema:push": "prisma db push",
+    "schema:generate": "prisma generate",
     "db:baseline": "prisma migrate diff",
     "db:migrate:resolve": "prisma migrate resolve",
-    "db:help": "bun run prisma --help"
+    "db:help": "bun run prisma --help",
+    "bundle": "bun build ./src/index.ts --outdir ./package --target bun && bun run bundle:types",
+    "bundle:types": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+    "postbundle": "rimraf tsconfig.types.tsbuildinfo"
   },
   "prisma": {
     "seed": "bun prisma/seed.ts --target bun"
@@ -42,7 +46,8 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
-    "prettier": "^3.1.1"
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.7"
   },
   "module": "src/index.ts"
 }

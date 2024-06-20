@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "composite": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "outDir": "./package",
+    "rootDir": "./src",
+    "allowJs": true,
+    "types": ["bun-types"]
+  },
+  "include": ["src/**/*.ts"]
+}
