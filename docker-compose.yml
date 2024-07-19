@@ -3,7 +3,7 @@ services:
     image: imbios/bun-node
     command: bun run dev
     ports:
-      - 8056:8056
+      - 4000:4000
     volumes:
       - ./:/home/bun/app
     extra_hosts:
