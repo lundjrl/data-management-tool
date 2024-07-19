@@ -1,6 +1,5 @@
 services:
-  app:
-    container_name: API
+  bun:
     image: 'imbios/bun-node'
     # override default entrypoint allows us to do `bun install` before serving
     entrypoint: []
