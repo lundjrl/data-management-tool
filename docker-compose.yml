@@ -28,8 +28,8 @@ services:
     ports: ['5432:5432']
     expose: [5432]
     environment:
-      POSTGRES_USER: example
-      POSTGRES_DB: main
+      POSTGRES_USER: data_management_tool
+      POSTGRES_DB: data_management_tool
       POSTGRES_PASSWORD: secret
     volumes:
       - pgdata:/var/lib/postgresql/data
