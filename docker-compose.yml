@@ -3,7 +3,7 @@ services:
     image: imbios/bun-node
     command: bun run dev
     ports:
-      - 4000:4000
+      - ${MAPPED_PORT:-4000}:4000
     volumes:
       - ./:/home/bun/app
     extra_hosts:
@@ -13,8 +13,7 @@ services:
     image: postgres
     restart: unless-stopped
     ports:
-      - 5432:5432
-    expose: [5432]
+      - ${MAPPED_DB_PORT:-5432}:5432
     environment:
       POSTGRES_USER: example
       POSTGRES_DB: main
