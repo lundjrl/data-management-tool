@@ -12,8 +12,7 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
-  db:
-    container_name: postgres
+  database:
     image: postgres
     restart: unless-stopped
     ports:
