@@ -1,7 +1,7 @@
 services:
   bun:
     image: imbios/bun-node
-    command: "/bin/sh -c 'bun install && bun run --watch src/index.ts'"
+    command: bun run dev
     ports:
       - 8056:8056
     volumes:
