@@ -65,4 +65,4 @@ app.use(uiRoutes)
 
 app.listen(env().PORT)
 
-log('log', `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)
+log('log', `🕷️  Data Management Tool is running at ${app.server?.hostname}:${app.server?.port}`)
