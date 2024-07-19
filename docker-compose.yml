@@ -1,19 +1,14 @@
 services:
   bun:
-    image: 'imbios/bun-node'
-    # override default entrypoint allows us to do `bun install` before serving
-    entrypoint: []
-    # execute bun install before we start the dev server in watch mode
+    image: imbios/bun-node
     command: "/bin/sh -c 'bun install && bun run --watch src/index.ts'"
-    # expose the right ports
-    ports: ['8056:8056']
-    # setup a host mounted volume to sync changes to the container
-    volumes: ['./:/home/bun/app']
-
+    ports:
+      - 8056:8056
+    volumes:
+      - ./:/home/bun/app
     depends_on:
       db:
         condition: service_healthy
-
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
@@ -21,7 +16,8 @@ services:
     container_name: postgres
     image: postgres
     restart: unless-stopped
-    ports: ['5432:5432']
+    ports:
+      - 5432:5432
     expose: [5432]
     environment:
       POSTGRES_USER: example
@@ -30,11 +26,14 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}']
+      test:
+        [
+          'CMD-SHELL',
+          'pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}'
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
-
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
