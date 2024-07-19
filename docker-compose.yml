@@ -6,9 +6,6 @@ services:
       - 8056:8056
     volumes:
       - ./:/home/bun/app
-    depends_on:
-      db:
-        condition: service_healthy
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
