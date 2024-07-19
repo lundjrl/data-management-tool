@@ -6,11 +6,15 @@ export const log: FN = (type, msg) => {
   switch (type) {
     case 'error':
       console.error(msg)
+      break
     case 'log':
       console.log(msg)
+      break
     case 'table':
       console.log(msg)
+      break
     case 'warn':
       console.log(msg)
+      break
   }
 }
