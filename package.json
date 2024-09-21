@@ -22,27 +22,27 @@
     "@elysiajs/html": "latest",
     "@elysiajs/swagger": "latest",
     "@kitajs/ts-html-plugin": "^4.0.1",
-    "@prisma/client": "^5.7.1",
-    "@prisma/migrate": "^5.7.1",
-    "elysia": "latest",
+    "@prisma/client": "^5.15.0",
+    "@prisma/migrate": "^5.15.0",
+    "elysia": "1.0.23",
     "elysia-compression": "latest",
-    "prisma": "^5.7.1",
+    "prisma": "^5.15.0",
     "prisma-schema-dsl": "^2.2.0",
-    "typescript": "^5.3.3",
-    "zod": "^3.22.4"
+    "typescript": "^5.4.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@ts-safeql/eslint-plugin": "^3.3.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
     "bun-types": "latest",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-simple-import-sort": "^12.0.0",
-    "eslint-plugin-unused-imports": "^3.0.0",
-    "prettier": "^3.1.1"
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "prettier": "^3.3.1"
   },
   "module": "src/index.ts"
 }
