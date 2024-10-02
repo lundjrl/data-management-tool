@@ -41,3 +41,7 @@ yarn-error.log*
 **/*.log
 package-lock.json
 **/*.bun
+
+# docs
+docs/.vitepress/dist
+docs/.vitepress/cache
