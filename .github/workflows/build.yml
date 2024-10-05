@@ -15,7 +15,7 @@ jobs:
       - uses: oven-sh/setup-bun@v1
       - name: build
         env:
-          PORT: 8055
+          PORT: 4000
           DATABASE_URL: postgres://example:secret@db:5432/main?schema=public
         working-directory: ${{ github.workspace }}/
         run: bun install

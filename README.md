@@ -44,9 +44,9 @@ After that's done, spin up the API and Database containers with
 ./start
 ```
 
-Open http://localhost:8056/ with your browser to see the API running.
+Open http://localhost:4000/ with your browser to see the API running.
 
-The API has swagger doc support baked in, check the result at http://localhost:8056/swagger
+The API has swagger doc support baked in, check the result at http://localhost:4000/swagger
 
 ### Adding ENV variables
 
