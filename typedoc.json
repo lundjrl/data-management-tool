@@ -1,0 +1,17 @@
+{
+  "name": "Data Management Tool",
+  "readme": "./docs/api-examples.md",
+  "entryPoints": ["src/index.ts"],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
+  "docsRoot": "./docs",
+  "out": "./docs/api",
+  // TODO: Double-check these settings - do they do the thing that we want to do?
+  "categorizeByGroup": true,
+  "hideGenerator": true,
+  "cacheBust": true,
+  "navigation": {
+    "includeCategories": false,
+    "includeGroups": false,
+    "includeFolders": false
+  }
+}

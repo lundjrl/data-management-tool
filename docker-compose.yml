@@ -9,6 +9,16 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
+  docs:
+    image: imbios/bun-node
+    command: bun run docs:dev
+    ports:
+      - ${MAPPED_DOCS_PORT:-5173}:5173
+    volumes:
+      - ./:/home/bun/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
   database:
     image: postgres:16
     restart: unless-stopped

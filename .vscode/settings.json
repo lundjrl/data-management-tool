@@ -2,5 +2,15 @@
   "search.exclude": {
     "**/node_modules": true
   },
-  "cSpell.words": ["adonisjs", "bunx", "elysia", "elysiajs", "kitajs", "safeql", "skinwalker", "Uncapitalize"]
+  "cSpell.words": [
+    "adonisjs",
+    "bunx",
+    "elysia",
+    "elysiajs",
+    "kitajs",
+    "predocs",
+    "safeql",
+    "skinwalker",
+    "Uncapitalize"
+  ]
 }

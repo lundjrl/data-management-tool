@@ -11,7 +11,9 @@
     "db:baseline": "prisma migrate diff",
     "db:migrate:resolve": "prisma migrate resolve",
     "db:help": "bun run prisma --help",
-    "docs:dev": "vitepress dev docs",
+    "predocs:dev": "typedoc",
+    "predocs:build": "typedoc",
+    "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
@@ -46,7 +48,18 @@
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-unused-imports": "^3.2.0",
     "prettier": "^3.3.1",
+    "typedoc": "^0.26.11",
+    "typedoc-plugin-markdown": "^4.2.10",
+    "typedoc-vitepress-theme": "^1.0.2",
     "vitepress": "^1.3.4"
   },
-  "module": "src/index.ts"
+  "module": "src/index.ts",
+  "keywords": [
+    "Data Management Tool",
+    "Typescript",
+    "Elysia",
+    "Bun",
+    "Prisma",
+    "Nobey Net"
+  ]
 }
