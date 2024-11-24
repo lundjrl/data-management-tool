@@ -1,22 +1,16 @@
 import { prisma } from './init'
-import { Prisma } from '@prisma/client'
+import type { ModelName } from '~/types/ModelName'
 
-type ModelName = Uncapitalize<Prisma.ModelName>
 type FN = <T>(
   key: ModelName,
+  id: number,
   params: T,
   // | Prisma.crewCreateInput
   // | Prisma.monsterCreateInput
   // | Prisma.dutyCreateInput
 ) => Promise<T>
 
-// TODO: Fix types here for dynamic update
-export const update: FN = async (key, params) => {
-  // @ts-expect-error James - bypassing error to debug params model
-  return await prisma[key].update({ data: params })
-}
-
-export const updateMany: FN = async (key, params) => {
-  // @ts-expect-error James - bypassing error to debug params model
-  return await prisma[key].updateMany({ data: params })
+export const update: FN = async (key, id, params) => {
+  // @ts-expect-error TODO: Need to figure out how to type this
+  return await prisma[key].update({ data: params, where: { id } })
 }

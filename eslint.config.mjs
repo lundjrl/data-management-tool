@@ -8,7 +8,6 @@ import parserTs from '@typescript-eslint/parser'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import _import from 'eslint-plugin-import'
 import jsxA11Y from 'eslint-plugin-jsx-a11y'
-import hooksPlugin from 'eslint-plugin-react-hooks'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
@@ -60,6 +59,32 @@ const importRules = {
   'import/no-extraneous-dependencies': ['error'],
   'import/no-named-as-default': ['off'],
   'unused-imports/no-unused-imports': ['error'],
+  'sort-imports': 'off',
+  'import/prefer-default-export': 'off',
+  'import/no-cycle': 1,
+  'import/extensions': 0,
+  'import/first': 'error',
+  'import/newline-after-import': 'error',
+  'import/no-duplicates': 'error',
+  'simple-import-sort/exports': 'error',
+  'simple-import-sort/imports': [
+    'error',
+    {
+      groups: [
+        ['^react$', '^react', '^@react', '^react\\u0000$'], // react things first
+        ['^@?\\w'], // packages
+        ['~/.'],
+        ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+        ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+        ['^@?\\w.*\\u0000$', '^[^.].*\\u0000$', '^\\..*\\u0000$'], // Package types then internal types.
+      ],
+    },
+  ],
+}
+
+const reactRules = {
+  'react/prop-types': 'off',
+  'react/no-unknown-property': 'off',
 }
 
 const typescriptRules = {
@@ -67,8 +92,6 @@ const typescriptRules = {
   '@stylistic/ts/semi': ['error', 'never'],
   '@stylistic/ts/explicit-module-boundary-types': 'off',
   '@stylistic/ts/no-use-before-define': 'off',
-  // '@stylistic/ts/no-var-requires': 'error',
-  // '@stylistic/ts/no-shadow': ['error'],
   'no-useless-constructor': ['error'],
   '@typescript-eslint/no-unused-vars': [
     'error',
@@ -99,7 +122,7 @@ const generalSettings = {
     'import/resolver': {
       typescript: true,
       alias: {
-        map: [['~', './app/']],
+        map: [['~', './src/']],
         extensions: ['.ts', '.js', '.tsx'],
       },
       node: true,
@@ -130,6 +153,7 @@ const mainConfig = [
     ignores: ['**/next-env.d.ts', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
   },
   ...fixupConfigRules(compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime')),
+  _import.flatConfigs.recommended,
   jsxA11yConfig,
   stylistic.configs['disable-legacy'],
   {
@@ -156,29 +180,7 @@ const mainConfig = [
       ...a11yRules,
       ...baseRules,
       ...importRules,
-      ...hooksPlugin.configs.recommended.rules,
-      'react/prop-types': 'off',
-      'import/prefer-default-export': 'off',
-      'import/no-cycle': 1,
-      'import/extensions': 0,
-      'sort-imports': 'off',
-      'import/first': 'error',
-      'import/newline-after-import': 'error',
-      'import/no-duplicates': 'error',
-      'simple-import-sort/exports': 'error',
-      'simple-import-sort/imports': [
-        'error',
-        {
-          groups: [
-            ['^react$', '^react', '^@react', '^react\\u0000$'], // react things first
-            ['^@?\\w'], // packages
-            ['~/.'],
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-            ['^@?\\w.*\\u0000$', '^[^.].*\\u0000$', '^\\..*\\u0000$'], // Package types then internal types.
-          ],
-        },
-      ],
+      ...reactRules,
     },
     settings: generalSettings.settings,
   },

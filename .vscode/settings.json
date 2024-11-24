@@ -1,4 +1,11 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
   "search.exclude": {
     "**/node_modules": true
   },
@@ -8,6 +15,7 @@
     "elysia",
     "elysiajs",
     "kitajs",
+    "Numberish",
     "predocs",
     "safeql",
     "skinwalker",
