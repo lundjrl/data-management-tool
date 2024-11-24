@@ -8,7 +8,9 @@ type FN = (params: Params) => Promise<unknown>
 // Create a new DB table based on passed object.
 export const createModel: FN = async params => {
   try {
-    const { columns, tableName } = params
+    console.log('James create model params::', params)
+    // const { columns, tableName } = params
+    const tableName = ''
 
     // TODO: Need to map through columns {} to build schema.
     const result = await prisma.$queryRaw`

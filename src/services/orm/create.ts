@@ -12,9 +12,11 @@ type FN = <T>(
 
 // TODO: Fix types here for dynamic create
 export const create: FN = async (key, params) => {
+  // @ts-expect-error James - bypassing error to debug params model
   return await prisma[key].create({ data: params })
 }
 
 export const createMany: FN = async (key, params) => {
+  // @ts-expect-error James - bypassing error to debug params model
   return await prisma[key].createMany({ data: params })
 }

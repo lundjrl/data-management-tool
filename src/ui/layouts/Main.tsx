@@ -1,4 +1,10 @@
-export const Body = ({ children }) => (
+import type { ReactNode } from 'react'
+
+interface Props {
+  children: ReactNode
+}
+
+export const Body = ({ children }: Props): Element => (
   <html lang="en">
     <head>
       <meta charset="UTF-8"></meta>

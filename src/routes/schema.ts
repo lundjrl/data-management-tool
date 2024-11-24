@@ -27,6 +27,7 @@ app.post('/:collection', async ({ body, params: { collection } }) => {
 })
 
 app.patch('/:collection/:id', async ({ params: { collection, id }, query }) => {
+  console.log('james id::', id)
   const k = collection as Prisma.ModelName
   const result = await update(k, query)
   return result
@@ -41,9 +42,9 @@ app.delete('/:collection/:id', async ({ params: { collection, id } }) => {
 
 app.delete('/:collection', async ({ params: { collection }, query }) => {
   console.log('James Query:', query)
-  // const k = collection as Prisma.ModelName
-  // const result = await deleteMany(k, {  })
-  // return result
+  const k = collection as Prisma.ModelName
+  const result = await deleteMany(k, {})
+  return result
   return query
 })
 

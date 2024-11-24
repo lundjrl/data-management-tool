@@ -12,9 +12,11 @@ type FN = <T>(
 
 // TODO: Fix types here for dynamic update
 export const update: FN = async (key, params) => {
+  // @ts-expect-error James - bypassing error to debug params model
   return await prisma[key].update({ data: params })
 }
 
 export const updateMany: FN = async (key, params) => {
+  // @ts-expect-error James - bypassing error to debug params model
   return await prisma[key].updateMany({ data: params })
 }

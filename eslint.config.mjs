@@ -197,6 +197,7 @@ const mainConfig = [
       parserOptions: {
         parser: parserTs,
         project: './tsconfig.json',
+        ecmaVersion: 'latest',
         ecmaFeatures: {
           jsx: true,
         },
