@@ -1,4 +1,5 @@
 import { prisma } from './init'
+
 import type { ModelName } from '~/types/ModelName'
 
 type FN = <WhereParams>(key: ModelName, params: WhereParams) => Promise<WhereParams>

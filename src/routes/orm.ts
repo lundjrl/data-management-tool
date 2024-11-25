@@ -3,8 +3,6 @@ import { Elysia } from 'elysia'
 
 const app = new Elysia({ prefix: '/orm' })
 
-app.post('/introspect', async () => {
-  introspection()
-})
+app.post('/introspect', () => introspection())
 
 export default app

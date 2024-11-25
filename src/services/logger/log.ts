@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 type LoggingTypes = 'log' | 'error' | 'table' | 'warn'
 type FN = (type: LoggingTypes, msg: string) => void
 

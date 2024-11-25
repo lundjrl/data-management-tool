@@ -1,4 +1,5 @@
 import { prisma } from './init'
+
 import type { ModelName } from '~/types/ModelName'
 
 type FN = <T>(
@@ -11,10 +12,14 @@ type FN = <T>(
 
 export const create: FN = async (key, params) => {
   // @ts-expect-error TODO: Need to figure out how to type this
-  return await prisma[key].create({ data: params })
+  const response = (await prisma[key].create({ data: params })) as typeof params
+
+  return response
 }
 
 export const createMany: FN = async (key, params) => {
   // @ts-expect-error TODO: Need to figure out how to type this
-  return await prisma[key].createMany({ data: params })
+  const response = (await prisma[key].createMany({ data: params })) as typeof params
+
+  return response
 }

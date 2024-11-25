@@ -1,4 +1,5 @@
 import { log } from '../logger/log'
+
 import { prisma } from './init'
 
 type Params = {}
@@ -22,6 +23,6 @@ export const createModel: FN = async params => {
 
     return result
   } catch (error) {
-    log('error', `${error}`)
+    log('error', `${error as string}`)
   }
 }

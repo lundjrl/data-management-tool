@@ -1,6 +1,7 @@
 import { Elysia } from 'elysia'
-import { log } from '~/services/logger/log'
 import { z } from 'zod'
+
+import { log } from '~/services/logger/log'
 import { getCollections } from '~/services/orm/getCollections'
 
 // Endpoint where buttons/etc can invoke

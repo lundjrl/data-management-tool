@@ -1,12 +1,14 @@
-import { findFirst } from '~/services/orm/findFirst'
-import { findMany } from '~/services/orm/findMany'
-import type { ModelName } from '~/types/ModelName'
+import { Elysia } from 'elysia'
+
 import { create } from '~/services/orm/create'
-import { update } from '~/services/orm/update'
 import { deleteOne } from '~/services/orm/delete'
 import { deleteMany } from '~/services/orm/deleteMany'
-import { Elysia } from 'elysia'
+import { findFirst } from '~/services/orm/findFirst'
+import { findMany } from '~/services/orm/findMany'
+import { update } from '~/services/orm/update'
 import { getNumber } from '~/utils/getNumber'
+
+import type { ModelName } from '~/types/ModelName'
 
 const app = new Elysia({ prefix: '/schema' })
 
