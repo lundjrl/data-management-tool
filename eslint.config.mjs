@@ -4,6 +4,7 @@ import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import stylisticJsx from '@stylistic/eslint-plugin-jsx'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
+import safeql from '@ts-safeql/eslint-plugin/config'
 import parserTs from '@typescript-eslint/parser'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import _import from 'eslint-plugin-import'
@@ -14,7 +15,6 @@ import globals from 'globals'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import tsEslint from 'typescript-eslint'
-import safeql from '@ts-safeql/eslint-plugin/config'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -88,7 +88,6 @@ const reactRules = {
 }
 
 const typescriptRules = {
-  '@stylistic/ts/indent': ['error', 2],
   '@stylistic/ts/semi': ['error', 'never'],
   '@stylistic/ts/explicit-module-boundary-types': 'off',
   '@stylistic/ts/no-use-before-define': 'off',
@@ -150,7 +149,7 @@ const jsxA11yConfig = {
 const mainConfig = [
   {
     name: 'ignores-config',
-    ignores: ['**/next-env.d.ts', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
+    ignores: ['**/next-env.d.ts', 'eslint.config.mjs', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
   },
   ...fixupConfigRules(compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime')),
   _import.flatConfigs.recommended,

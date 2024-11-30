@@ -1,7 +1,8 @@
 import { Prisma } from '@prisma/client'
 
+import { prisma } from '~/services/orm/init'
+
 import { log } from '../logger/log'
-import { prisma } from '../orm/init'
 
 import type { Table } from '~/schemas/forms/Table'
 

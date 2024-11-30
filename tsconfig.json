@@ -38,5 +38,5 @@
     "noUnusedParameters": true
   },
   "include": ["env.ts", "**/*.ts", "**/*.tsx", "*.json"],
-  "exclude": ["node_modules", "dist", "node_modules/elysia/dist"]
+  "exclude": ["node_modules", "dist", "node_modules/elysia/dist", "eslint.config.mjs"]
 }
