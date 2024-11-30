@@ -13,5 +13,6 @@
     "includeCategories": false,
     "includeGroups": false,
     "includeFolders": false
-  }
+  },
+  "tsconfig": "./tsconfig.json"
 }

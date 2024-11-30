@@ -1,28 +1,15 @@
-import { fixupConfigRules } from '@eslint/compat'
-import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import stylisticJsx from '@stylistic/eslint-plugin-jsx'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 import safeql from '@ts-safeql/eslint-plugin/config'
 import parserTs from '@typescript-eslint/parser'
-import eslintConfigPrettier from 'eslint-config-prettier'
+// import eslintConfigPrettier from 'eslint-config-prettier'
 import _import from 'eslint-plugin-import'
 import jsxA11Y from 'eslint-plugin-jsx-a11y'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import tsEslint from 'typescript-eslint'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
 
 const a11yRules = {}
 
@@ -83,8 +70,9 @@ const importRules = {
 }
 
 const reactRules = {
-  'react/prop-types': 'off',
-  'react/no-unknown-property': 'off',
+  '@stylistic/jsx/prop-types': 'off',
+  '@stylistic/jsx/no-unknown-property': 'off',
+  '@stylistic/jsx/jsx-indent': ['error', 2],
 }
 
 const typescriptRules = {
@@ -149,9 +137,9 @@ const jsxA11yConfig = {
 const mainConfig = [
   {
     name: 'ignores-config',
-    ignores: ['**/next-env.d.ts', 'eslint.config.mjs', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
+    ignores: ['**/next-env.d.ts', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
   },
-  ...fixupConfigRules(compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime')),
+  // ...fixupConfigRules(compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime')),
   _import.flatConfigs.recommended,
   jsxA11yConfig,
   stylistic.configs['disable-legacy'],
@@ -208,7 +196,7 @@ const mainConfig = [
     settings: generalSettings.settings,
   },
 
-  eslintConfigPrettier,
+  // eslintConfigPrettier,
 ]
 
 export default mainConfig

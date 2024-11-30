@@ -12,6 +12,6 @@ type FN = <T>(
 ) => Promise<unknown>
 
 export const update: FN = async (key, id, params) => {
-  // @ts-expect-error TODO: Need to figure out how to type this
+  // @ts-expect-error testing
   return (await prisma[key].update({ data: params, where: { id } })) as unknown
 }
