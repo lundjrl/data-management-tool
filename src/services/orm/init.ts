@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client'
 
-// INFO: Add ORM config options here
-const ormOptions = {}
+import { ORM_CONFIG_OPTIONS } from '~/utils/constants'
 
-export const prisma = new PrismaClient(ormOptions)
+export const prisma = new PrismaClient(ORM_CONFIG_OPTIONS)

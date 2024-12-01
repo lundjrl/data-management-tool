@@ -1,4 +1,6 @@
-import { Env } from '@adonisjs/env'
+const AdonisEnv = await import('@adonisjs/env')
+
+const Env = AdonisEnv.Env
 
 const validator = Env.rules({
   PORT: Env.schema.number(),

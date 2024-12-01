@@ -1,4 +1,4 @@
-import { Temp_Type, Temp_Schema } from '../schemas/Temp_Schema'
+import { Temp_Schema, Temp_Type } from '~/schemas/Temp_Schema'
 
 export const generateTempObject = () => {
   const x: Temp_Type = {

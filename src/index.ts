@@ -1,19 +1,22 @@
-import { Elysia } from 'elysia'
-import { generateTempObject } from './utils/generateTempObject'
-import { returnSchema } from './utils/returnSchema'
-import { swagger } from '@elysiajs/swagger'
-import { cors } from '@elysiajs/cors'
-import { compression } from 'elysia-compression'
 import bearer from '@elysiajs/bearer'
-import schemaRoutes from '~/routes/schema'
-import ormRoutes from '~/routes/orm'
-import { log } from './services/logger/log'
+import { cors } from '@elysiajs/cors'
+import { swagger } from '@elysiajs/swagger'
+import { Elysia } from 'elysia'
+import { compression } from 'elysia-compression'
+
+import databaseRoutes from '~/routes/database'
 import fnRoutes from '~/routes/fn'
 import healthRoutes from '~/routes/health'
-import uiRoutes from '~/routes/ui'
-import databaseRoutes from '~/routes/database'
+import ormRoutes from '~/routes/orm'
+import schemaRoutes from '~/routes/schema'
 import searchRoutes from '~/routes/search'
+import uiRoutes from '~/routes/ui'
+
 import { env } from '../env'
+
+import { log } from './services/logger/log'
+import { generateTempObject } from './utils/generateTempObject'
+import { returnSchema } from './utils/returnSchema'
 
 const app = new Elysia()
 
@@ -28,6 +31,9 @@ app.use(compression())
 
 app.get('/', generateTempObject)
 
+/**
+ * Test to show endpoint
+ */
 app.get('/schema', returnSchema)
 
 // Example parse bearer token from request.
@@ -45,13 +51,14 @@ app.use(bearer()).get('/auth', ({ bearer }) => bearer, {
 // Example get cookie from request.
 app.get('/cookie', ({ cookie: { name } }) => {
   // Get
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   name.value
 
   // Set
   name.value = 'New Value'
-  name.value = {
-    hello: 'world',
-  }
+  // name.value = {
+  //   hello: 'world',
+  // }
 })
 
 // Add additional routes to API

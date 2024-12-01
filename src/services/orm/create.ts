@@ -1,7 +1,7 @@
 import { prisma } from './init'
-import type { Prisma } from '@prisma/client'
 
-type ModelName = Uncapitalize<Prisma.ModelName>
+import type { ModelName } from '~/types/ModelName'
+
 type FN = <T>(
   key: ModelName,
   params: T,
@@ -10,11 +10,16 @@ type FN = <T>(
   // | Prisma.dutyCreateInput
 ) => Promise<T>
 
-// TODO: Fix types here for dynamic create
 export const create: FN = async (key, params) => {
-  return await prisma[key].create({ data: params })
+  // @ts-expect-error TODO: Need to figure out how to type this
+  const response = (await prisma[key].create({ data: params })) as typeof params
+
+  return response
 }
 
 export const createMany: FN = async (key, params) => {
-  return await prisma[key].createMany({ data: params })
+  // @ts-expect-error TODO: Need to figure out how to type this
+  const response = (await prisma[key].createMany({ data: params })) as typeof params
+
+  return response
 }

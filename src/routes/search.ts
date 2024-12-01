@@ -1,4 +1,5 @@
 import { Elysia } from 'elysia'
+
 import { getCollections } from '~/services/orm/getCollections'
 
 const app = new Elysia({ prefix: '/search' })

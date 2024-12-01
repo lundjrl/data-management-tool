@@ -1,5 +1,6 @@
-import { Elysia } from 'elysia'
 import { html } from '@elysiajs/html'
+import { Elysia } from 'elysia'
+
 import Home from '~/ui/pages/Home'
 import Models from '~/ui/pages/Models'
 
@@ -14,7 +15,7 @@ app.get('/', e => {
 
 app.get('/models', e => {
   e.set.headers['Content-Type'] = 'text/html; charset=utf8'
-  return Models()
+  return Models({})
 })
 
 export default app

@@ -8,12 +8,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
 # production
 /build
+/out/
 
 # misc
 .DS_Store
@@ -41,3 +38,8 @@ yarn-error.log*
 **/*.log
 package-lock.json
 **/*.bun
+
+# docs
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/api

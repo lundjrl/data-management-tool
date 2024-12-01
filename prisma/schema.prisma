@@ -1,6 +1,7 @@
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native", "debian-openssl-1.1.x", "darwin"]
+  // output = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -26,10 +27,6 @@ model monster {
   name          String?
   is_skinwalker Boolean?
 }
-
-/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
-// model undefined {
-// }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model what {

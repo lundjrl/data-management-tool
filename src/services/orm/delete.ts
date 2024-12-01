@@ -1,20 +1,12 @@
+import { BatchPayload } from '~/types/BatchPayload'
+
 import { prisma } from './init'
-import { Prisma } from '@prisma/client'
 
-type ModelName = Uncapitalize<Prisma.ModelName>
-type FN = <T>(
-  key: ModelName,
-  params: T,
-  // | Prisma.crewCreateInput
-  // | Prisma.monsterCreateInput
-  // | Prisma.dutyCreateInput
-) => Promise<T>
+import type { ModelName } from '~/types/ModelName'
 
-// TODO: Fix types here for dynamic create
+type FN = <WhereParams>(key: ModelName, params: WhereParams) => Promise<unknown>
+
 export const deleteOne: FN = async (key, params) => {
-  return await prisma[key].delete({ data: params })
-}
-
-export const deleteMany: FN = async (key, params) => {
-  return await prisma[key].deleteMany({ data: params })
+  // @ts-expect-error TODO: Need to figure out how to type this
+  return (await prisma[key].delete({ where: params })) as BatchPayload
 }

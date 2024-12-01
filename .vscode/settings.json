@@ -1,6 +1,25 @@
 {
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
   "search.exclude": {
     "**/node_modules": true
   },
-  "cSpell.words": ["adonisjs", "bunx", "elysia", "elysiajs", "kitajs", "safeql", "skinwalker", "Uncapitalize"]
+  "cSpell.words": [
+    "adonisjs",
+    "bunx",
+    "elysia",
+    "elysiajs",
+    "kitajs",
+    "Numberish",
+    "predocs",
+    "safeql",
+    "skinwalker",
+    "Uncapitalize"
+  ]
 }

@@ -1,6 +1,6 @@
 services:
   bun:
-    image: imbios/bun-node
+    image: imbios/bun-node:22-debian
     command: bun run dev
     ports:
       - ${MAPPED_PORT:-4000}:4000
@@ -9,8 +9,18 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
 
+  docs:
+    image: imbios/bun-node
+    command: bun run docs:dev
+    ports:
+      - ${MAPPED_DOCS_PORT:-5173}:5173
+    volumes:
+      - ./:/home/bun/app
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
   database:
-    image: postgres
+    image: postgres:16
     restart: unless-stopped
     ports:
       - ${MAPPED_DB_PORT:-5432}:5432
@@ -21,11 +31,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test:
-        [
-          'CMD-SHELL',
-          'pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}'
-        ]
+      test: ['CMD-SHELL', 'pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}']
       interval: 10s
       timeout: 5s
       retries: 5

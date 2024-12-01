@@ -1,5 +1,6 @@
-import { prisma } from './init'
 import { ORM_DEFAULT_DB } from '~/utils/constants'
+
+import { prisma } from './init'
 
 export const getCollections = async () => {
   const dbTables = await prisma.$queryRaw<{ table_name: string }[]>`

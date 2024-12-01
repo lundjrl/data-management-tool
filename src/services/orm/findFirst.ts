@@ -1,16 +1,14 @@
 import { prisma } from './init'
-import { Prisma } from '@prisma/client'
 
-type ModelName = Uncapitalize<Prisma.ModelName>
+import type { ModelName } from '~/types/ModelName'
+
 type FN = <T>(
   key: ModelName,
   params: T,
-  // | Prisma.crewCreateInput
-  // | Prisma.monsterCreateInput
-  // | Prisma.dutyCreateInput
-) => Promise<T>
+  // | Prisma.crewFindFirstArgs | Prisma.dutyFindFirstArgs | Prisma.monsterFindFirstArgs,
+) => Promise<unknown>
 
-// TODO: Fix types here for dynamic create
 export const findFirst: FN = async (key, params) => {
-  return await prisma[key].findFirst(params)
+  // @ts-expect-error TODO: Need to figure out how to type this
+  return (await prisma[key].findFirst(params)) as unknown
 }

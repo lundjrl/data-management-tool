@@ -1,7 +1,12 @@
+import type {FC, ReactNode} from 'react'
+
+import { Html } from '@elysiajs/html'
+
 import { CreateModel } from '../forms/CreateModel'
 import { Body } from '../layouts/Main'
 
-const Models = () => (
+
+const Models: FC = () => (
   <Body>
     <main>
       <h1>Models</h1>
@@ -14,6 +19,6 @@ const Models = () => (
       </div>
     </main>
   </Body>
-)
+) as ReactNode
 
 export default Models

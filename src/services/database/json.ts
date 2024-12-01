@@ -1,4 +1,5 @@
 import { Prisma } from '@prisma/client'
+
 import { getCollections } from '../orm/getCollections'
 
 export const getJSONSchema = async (collection?: string) => {

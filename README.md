@@ -44,9 +44,9 @@ After that's done, spin up the API and Database containers with
 ./start
 ```
 
-Open http://localhost:8056/ with your browser to see the API running.
+Open http://localhost:4000/ with your browser to see the API running.
 
-The API has swagger doc support baked in, check the result at http://localhost:8056/swagger
+The API has swagger doc support baked in, check the result at http://localhost:4000/swagger
 
 ### Adding ENV variables
 
@@ -61,3 +61,7 @@ To apply the `prisma/schema.prisma` db schema to postgres, run `./bun run db:sch
 To overwrite the prisma schema with your local db, run `./bun run db:schema:pull`
 
 For general prisma help, run `./bun run db:help`
+
+### Running documentation
+
+Run `./documentation` to spin up the Vitepress server.
