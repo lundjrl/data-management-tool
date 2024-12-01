@@ -31,6 +31,9 @@ app.use(compression())
 
 app.get('/', generateTempObject)
 
+/**
+ * Test to show endpoint
+ */
 app.get('/schema', returnSchema)
 
 // Example parse bearer token from request.

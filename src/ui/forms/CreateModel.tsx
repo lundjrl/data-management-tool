@@ -1,5 +1,8 @@
-//  Super basic form that submits to create new table endpoint.
+import type { ReactNode } from "react"
 
+import { Html } from "@elysiajs/html"
+
+// Super basic form that submits to create new table endpoint.
 // Example request body to our API
 
 export const CreateModel = () => (
@@ -11,4 +14,4 @@ export const CreateModel = () => (
       <button type="button">Submit</button>
     </form>
   </>
-)
+) as ReactNode

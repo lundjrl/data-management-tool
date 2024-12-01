@@ -3,23 +3,26 @@
 layout: home
 
 hero:
-  name: "Data Management Tool"
-  text: "A schema management API to help you organize a DB."
-  tagline: My great project tagline
+  name: DMT
+  text: A Data Management Tool
+  tagline: Schema management to help you organize your database.
+  image:
+    src: Logo.png
+    alt: Spider mascot for the app
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Documentation
+      link: /api
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Github
+      link: https://github.com/lundjrl/data-management-tool
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Database Management
+    details: Alter your database through REST calls. Change tables, columns, you name it.
+  - title: API Generation
+    details: Generate a REST API with CRUD endpoints for your data
+  - title: PostGreSQL Support
+    details: Migrate your existing database to PostGreSQL
 ---
 

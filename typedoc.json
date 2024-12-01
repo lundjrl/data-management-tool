@@ -1,11 +1,11 @@
 {
+  "$schema": "https://typedoc.org/schema.json",
   "name": "Data Management Tool",
   "readme": "./docs/api-examples.md",
-  "entryPoints": ["src/index.ts"],
+  "entryPoints": ["src/**/*.ts", "src/**/*.tsx"],
   "plugin": ["typedoc-plugin-markdown", "typedoc-vitepress-theme"],
   "docsRoot": "./docs",
   "out": "./docs/api",
-  // TODO: Double-check these settings - do they do the thing that we want to do?
   "categorizeByGroup": true,
   "hideGenerator": true,
   "cacheBust": true,
@@ -14,5 +14,22 @@
     "includeGroups": false,
     "includeFolders": false
   },
-  "tsconfig": "./tsconfig.json"
+  "highlightLanguages": [
+    "css",
+    "html",
+    "javascript",
+    "json",
+    "jsonc",
+    "json5",
+    "yaml",
+    "tsx",
+    "typescript"
+  ],
+  "skipErrorChecking": false, // true for local dev
+  "sidebar": {
+    "autoConfiguration": true,
+    "format": "vitepress",
+    "pretty": true,
+    "collapsed": true
+  }
 }

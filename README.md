@@ -61,3 +61,7 @@ To apply the `prisma/schema.prisma` db schema to postgres, run `./bun run db:sch
 To overwrite the prisma schema with your local db, run `./bun run db:schema:pull`
 
 For general prisma help, run `./bun run db:help`
+
+### Running documentation
+
+Run `./documentation` to spin up the Vitepress server.

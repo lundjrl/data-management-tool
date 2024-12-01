@@ -15,7 +15,7 @@ app.get('/', e => {
 
 app.get('/models', e => {
   e.set.headers['Content-Type'] = 'text/html; charset=utf8'
-  return Models()
+  return Models({})
 })
 
 export default app
