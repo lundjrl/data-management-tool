@@ -12,4 +12,5 @@ app.post('/', res => log('log', `${JSON.stringify(res)}`))
 app.get('/collections', getCollections)
 
 app.post('/validation/email', res => z.string().email().parse(res.body))
+
 export default app
