@@ -21,7 +21,19 @@ import { returnSchema } from './utils/returnSchema'
 const app = new Elysia()
 
 // Enable swagger docs, access with /swagger endpoint
-app.use(swagger())
+app.use(swagger({
+  documentation: {
+    info: {
+      title: 'Data Management Tool',
+      version: 'v1.0.6'
+    }
+  },
+  path: '/docs', scalarConfig: {
+  favicon: '../images/favicon.ico',
+  metaData: {
+  description: 'API Documentation for Data Management Tool',
+  title: "DMT Documentation"}
+}}))
 
 // Enable CORS config
 app.use(cors())
