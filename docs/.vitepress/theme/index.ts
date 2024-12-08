@@ -1,8 +1,15 @@
 // https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
-import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import {theme, useOpenapi} from 'vitepress-openapi'
+import { h } from 'vue'
+
+import spec from '../../public/openapi.json'
+
+import type { Theme } from 'vitepress'
+
+import 'vitepress-openapi/dist/style.css'
 import './style.css'
+
 
 export default {
   extends: DefaultTheme,
@@ -11,7 +18,14 @@ export default {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
     })
   },
-  enhanceApp({ app, router, siteData }) {
-    // ...
+  async enhanceApp({ app, router, siteData }) {
+    const openapi = useOpenapi({
+      spec
+    })
+
+    console.log('James router::', router)
+    console.log('siteData', siteData)
+
+    theme.enhanceApp({app, openapi})
   }
 } satisfies Theme

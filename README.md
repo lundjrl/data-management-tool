@@ -65,3 +65,5 @@ For general prisma help, run `./bun run db:help`
 ### Running documentation
 
 Run `./documentation` to spin up the Vitepress server.
+
+Api docs should be available at `http://localhost:5173`

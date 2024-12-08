@@ -1,0 +1,499 @@
+[
+  {
+    "text": "fn/validation",
+    "link": "/types/fn/validation/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "validate",
+        "link": "/types/fn/validation/functions/validate.md"
+      }
+    ]
+  },
+  {
+    "text": "index",
+    "link": "/types/index/"
+  },
+  {
+    "text": "routes/database",
+    "link": "/types/routes/database/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/database/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "routes/fn",
+    "link": "/types/routes/fn/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/fn/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "routes/health",
+    "link": "/types/routes/health/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/health/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "routes/orm",
+    "link": "/types/routes/orm/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/orm/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "routes/schema",
+    "link": "/types/routes/schema/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/schema/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "routes/search",
+    "link": "/types/routes/search/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/search/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "routes/ui",
+    "link": "/types/routes/ui/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "app",
+        "link": "/types/routes/ui/variables/app.md"
+      }
+    ]
+  },
+  {
+    "text": "schemas/Column_Relationship",
+    "link": "/types/schemas/Column_Relationship/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Column_Relationship_Type",
+        "link": "/types/schemas/Column_Relationship/type-aliases/Column_Relationship_Type.md"
+      },
+      {
+        "text": "Column_Relationship_Schema",
+        "link": "/types/schemas/Column_Relationship/variables/Column_Relationship_Schema.md"
+      }
+    ]
+  },
+  {
+    "text": "schemas/forms/Alter_Table",
+    "link": "/types/schemas/forms/Alter_Table/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Alter_Table",
+        "link": "/types/schemas/forms/Alter_Table/type-aliases/Alter_Table.md"
+      },
+      {
+        "text": "Alter_Table_Schema",
+        "link": "/types/schemas/forms/Alter_Table/variables/Alter_Table_Schema.md"
+      }
+    ]
+  },
+  {
+    "text": "schemas/forms/Alter_Table_Column",
+    "link": "/types/schemas/forms/Alter_Table_Column/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Alter_Table_Column_Type",
+        "link": "/types/schemas/forms/Alter_Table_Column/type-aliases/Alter_Table_Column_Type.md"
+      },
+      {
+        "text": "Alter_Table_Column_Schema",
+        "link": "/types/schemas/forms/Alter_Table_Column/variables/Alter_Table_Column_Schema.md"
+      }
+    ]
+  },
+  {
+    "text": "schemas/forms/Table",
+    "link": "/types/schemas/forms/Table/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Table",
+        "link": "/types/schemas/forms/Table/type-aliases/Table.md"
+      },
+      {
+        "text": "Table_Schema",
+        "link": "/types/schemas/forms/Table/variables/Table_Schema.md"
+      }
+    ]
+  },
+  {
+    "text": "schemas/forms/Table_Column",
+    "link": "/types/schemas/forms/Table_Column/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Table_Column_Type",
+        "link": "/types/schemas/forms/Table_Column/type-aliases/Table_Column_Type.md"
+      },
+      {
+        "text": "Table_Column_Schema",
+        "link": "/types/schemas/forms/Table_Column/variables/Table_Column_Schema.md"
+      }
+    ]
+  },
+  {
+    "text": "schemas/Temp_Schema",
+    "link": "/types/schemas/Temp_Schema/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Temp_Type",
+        "link": "/types/schemas/Temp_Schema/type-aliases/Temp_Type.md"
+      },
+      {
+        "text": "Temp_Schema",
+        "link": "/types/schemas/Temp_Schema/variables/Temp_Schema.md"
+      }
+    ]
+  },
+  {
+    "text": "services/database/columns",
+    "link": "/types/services/database/columns/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "alterBulkColumn",
+        "link": "/types/services/database/columns/functions/alterBulkColumn.md"
+      },
+      {
+        "text": "alterColumn",
+        "link": "/types/services/database/columns/functions/alterColumn.md"
+      },
+      {
+        "text": "createBulkColumns",
+        "link": "/types/services/database/columns/functions/createBulkColumns.md"
+      },
+      {
+        "text": "createColumn",
+        "link": "/types/services/database/columns/functions/createColumn.md"
+      },
+      {
+        "text": "deleteBulkColumns",
+        "link": "/types/services/database/columns/functions/deleteBulkColumns.md"
+      },
+      {
+        "text": "deleteColumn",
+        "link": "/types/services/database/columns/functions/deleteColumn.md"
+      },
+      {
+        "text": "renameBulkColumns",
+        "link": "/types/services/database/columns/functions/renameBulkColumns.md"
+      },
+      {
+        "text": "renameColumn",
+        "link": "/types/services/database/columns/functions/renameColumn.md"
+      }
+    ]
+  },
+  {
+    "text": "services/database/json",
+    "link": "/types/services/database/json/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "getJSONSchema",
+        "link": "/types/services/database/json/functions/getJSONSchema.md"
+      }
+    ]
+  },
+  {
+    "text": "services/database/tables",
+    "link": "/types/services/database/tables/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "createTable",
+        "link": "/types/services/database/tables/functions/createTable.md"
+      },
+      {
+        "text": "deleteTable",
+        "link": "/types/services/database/tables/functions/deleteTable.md"
+      }
+    ]
+  },
+  {
+    "text": "services/logger/log",
+    "link": "/types/services/logger/log/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "log",
+        "link": "/types/services/logger/log/functions/log.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/create",
+    "link": "/types/services/orm/create/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "create",
+        "link": "/types/services/orm/create/functions/create.md"
+      },
+      {
+        "text": "createMany",
+        "link": "/types/services/orm/create/functions/createMany.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/createModel",
+    "link": "/types/services/orm/createModel/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "createModel",
+        "link": "/types/services/orm/createModel/functions/createModel.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/delete",
+    "link": "/types/services/orm/delete/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "deleteOne",
+        "link": "/types/services/orm/delete/functions/deleteOne.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/deleteMany",
+    "link": "/types/services/orm/deleteMany/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "deleteMany",
+        "link": "/types/services/orm/deleteMany/functions/deleteMany.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/findFirst",
+    "link": "/types/services/orm/findFirst/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "findFirst",
+        "link": "/types/services/orm/findFirst/functions/findFirst.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/findMany",
+    "link": "/types/services/orm/findMany/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "findMany",
+        "link": "/types/services/orm/findMany/functions/findMany.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/getCollections",
+    "link": "/types/services/orm/getCollections/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "getCollections",
+        "link": "/types/services/orm/getCollections/functions/getCollections.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/init",
+    "link": "/types/services/orm/init/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "prisma",
+        "link": "/types/services/orm/init/variables/prisma.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/update",
+    "link": "/types/services/orm/update/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "update",
+        "link": "/types/services/orm/update/functions/update.md"
+      }
+    ]
+  },
+  {
+    "text": "services/orm/updateMany",
+    "link": "/types/services/orm/updateMany/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "updateMany",
+        "link": "/types/services/orm/updateMany/functions/updateMany.md"
+      }
+    ]
+  },
+  {
+    "text": "types/BatchPayload",
+    "link": "/types/types/BatchPayload/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "BatchPayload",
+        "link": "/types/types/BatchPayload/type-aliases/BatchPayload.md"
+      }
+    ]
+  },
+  {
+    "text": "types/ModelName",
+    "link": "/types/types/ModelName/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "ModelName",
+        "link": "/types/types/ModelName/type-aliases/ModelName.md"
+      }
+    ]
+  },
+  {
+    "text": "types/NumberIsh",
+    "link": "/types/types/NumberIsh/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Numberish",
+        "link": "/types/types/NumberIsh/type-aliases/Numberish.md"
+      }
+    ]
+  },
+  {
+    "text": "ui/forms/CreateModel",
+    "link": "/types/ui/forms/CreateModel/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "CreateModel",
+        "link": "/types/ui/forms/CreateModel/functions/CreateModel.md"
+      }
+    ]
+  },
+  {
+    "text": "ui/layouts/Main",
+    "link": "/types/ui/layouts/Main/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Body",
+        "link": "/types/ui/layouts/Main/functions/Body.md"
+      }
+    ]
+  },
+  {
+    "text": "ui/pages/Home",
+    "link": "/types/ui/pages/Home/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Home",
+        "link": "/types/ui/pages/Home/functions/Home.md"
+      }
+    ]
+  },
+  {
+    "text": "ui/pages/Models",
+    "link": "/types/ui/pages/Models/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Models",
+        "link": "/types/ui/pages/Models/functions/Models.md"
+      }
+    ]
+  },
+  {
+    "text": "utils/constants",
+    "link": "/types/utils/constants/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "ORM_CONFIG_OPTIONS",
+        "link": "/types/utils/constants/variables/ORM_CONFIG_OPTIONS.md"
+      },
+      {
+        "text": "ORM_DEFAULT_DB",
+        "link": "/types/utils/constants/variables/ORM_DEFAULT_DB.md"
+      }
+    ]
+  },
+  {
+    "text": "utils/generateTempObject",
+    "link": "/types/utils/generateTempObject/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "generateTempObject",
+        "link": "/types/utils/generateTempObject/functions/generateTempObject.md"
+      }
+    ]
+  },
+  {
+    "text": "utils/getNumber",
+    "link": "/types/utils/getNumber/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "getNumber",
+        "link": "/types/utils/getNumber/functions/getNumber.md"
+      }
+    ]
+  },
+  {
+    "text": "utils/returnSchema",
+    "link": "/types/utils/returnSchema/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "returnSchema",
+        "link": "/types/utils/returnSchema/functions/returnSchema.md"
+      }
+    ]
+  }
+]

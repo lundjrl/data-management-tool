@@ -110,7 +110,7 @@ const generalSettings = {
       typescript: true,
       alias: {
         map: [['~', './src/']],
-        extensions: ['.ts', '.js', '.tsx'],
+        extensions: ['.ts', '.js', '.tsx', '.mts'],
       },
       node: true,
     },
@@ -118,7 +118,7 @@ const generalSettings = {
 }
 
 const jsxA11yConfig = {
-  files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+  files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mts,mtsx}'],
   // ...jsxA11Y.flatConfigs.recommended,
   name: 'jsx-a11y-config',
   languageOptions: {
@@ -145,7 +145,7 @@ const mainConfig = [
   stylistic.configs['disable-legacy'],
   {
     name: 'legacy-config',
-    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx,mts,mtsx}'],
     plugins: {
       'simple-import-sort': simpleImportSort,
       'unused-imports': unusedImports,

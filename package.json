@@ -39,6 +39,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.7.2",
+    "vitepress-openapi": "^0.0.3-alpha.50",
     "zod": "^3.23.8"
   },
   "trustedDependencies": [
