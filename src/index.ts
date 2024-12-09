@@ -15,7 +15,6 @@ import uiRoutes from '~/routes/ui'
 import { env } from '../env'
 
 import { log } from './services/logger/log'
-import { generateTempObject } from './utils/generateTempObject'
 import { returnSchema } from './utils/returnSchema'
 
 const app = new Elysia()
@@ -40,8 +39,6 @@ app.use(cors())
 
 // Enable compression
 app.use(compression())
-
-app.get('/', generateTempObject)
 
 /**
  * Test to show endpoint

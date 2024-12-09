@@ -1,9 +1,10 @@
 import { Elysia } from 'elysia'
 
-const app = new Elysia({ prefix: '/health' })
+const app = new Elysia()
 
-app.get('/', () => {
-  return 'healthy as a goat 🐐'
-})
+const healthResponse = 'healthy as a goat 🐐'
+
+app.get('/', () =>  healthResponse)
+app.get('/health', () =>  healthResponse)
 
 export default app
