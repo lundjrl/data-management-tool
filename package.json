@@ -1,6 +1,6 @@
 {
   "name": "data-management-tool",
-  "version": "1.0.50",
+  "version": "1.0.6",
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/index.ts --target bun",
