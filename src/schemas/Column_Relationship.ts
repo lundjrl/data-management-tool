@@ -11,7 +11,6 @@ export const Column_Relationship_Schema = z.object({
   primaryKey: z.string(),
   referencedColumn: z.string(),
   referencedTable: z.string(),
-  relatedTo: z.string(),
   relationshipType: z.nativeEnum(RelationshipType),
 })
 

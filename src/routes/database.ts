@@ -1,7 +1,7 @@
 import { Elysia } from 'elysia'
 
 import { Alter_Table_Schema } from '~/schemas/forms/Alter_Table'
-import { Table_Schema } from '~/schemas/forms/Table'
+import { Table, Table_Schema } from '~/schemas/forms/Table'
 import {
   alterBulkColumn,
   alterColumn,
@@ -21,13 +21,13 @@ app.get('/json/schema/', getJSONSchema)
 
 app.get('/json/schema/:collection', ({ params: { collection } }) => getJSONSchema(collection))
 
-app.post('/create/table', async ({ body }) => {
+app.post('/create/table', async ({ body }: {body: Table}) => {
   const verified = Table_Schema.safeParse(body)
 
   if (!verified.success) return { status: 400, data: verified.error }
 
   const data = await createTable(verified.data)
-  return { status: 200, data }
+  return { status: 200, data: `complete ${data}` }
 })
 
 app.post('/delete/table', async ({ body }) => {
@@ -36,7 +36,7 @@ app.post('/delete/table', async ({ body }) => {
   if (!verified.success) return { status: 400, data: verified.error }
 
   const data = await deleteTable(verified.data)
-  return { status: 200, data }
+  return { status: 200, data: `complete ${data}` }
 })
 
 app.post('/alter/column', async ({ body }) => {
