@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://github.com/lundjrl/data-management-tool">
-      <img alt="Data Management Tool's mascot" src="images/Logo.png" width="200px">
+      <img alt="Data Management Tool's mascot" src="images/readme-logo.png" width="200px">
     </a>
     <h3 align="center" style="font-size: 24px; margin-top: -24px">
       Data Management Tool
