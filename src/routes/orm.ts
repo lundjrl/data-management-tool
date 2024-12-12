@@ -1,8 +1,9 @@
-import { introspection } from 'bin/introspection'
 import { Elysia } from 'elysia'
+
+import { introspection } from '~/services/types/introspection'
 
 const app = new Elysia({ prefix: '/orm' })
 
-app.post('/introspect', () => introspection())
+app.get('/introspect', () => introspection())
 
 export default app
