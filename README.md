@@ -1,42 +1,54 @@
-<div>
-<table border="0" style="background-color: none; width: 100%">
- <tr>
- </tr>
- <tr>
-    <td>
-      <img alt="Data Management Tool's mascot" src="images/Logo.png" width="300px">
-    </td>
-    <td>
-      <div>
-        <h1>Data Management Tool</h1>
-        <p>A small, organized, schema management API</p>
-      </div>
-      <div style="margin-top: 1rem">
+<div align="center">
+    <a href="https://github.com/lundjrl/data-management-tool">
+      <img alt="Data Management Tool's mascot" src="images/Logo.png" width="200px">
+    </a>
+    <h3 align="center" style="font-size: 24px; margin-top: -24px">
+    Data Management Tool
+    </h3>
+            <p align="center">A small, organized, schema management API</p>
+              <div style="margin-top: 1rem">
         <a href="https://github.com/lundjrl/great-asset/actions/workflows/build.yml">
           <img alt="Passes Build" src="https://github.com/lundjrl/great-asset/actions/workflows/build.yml/badge.svg" />
         </a>
-      </div>
-      <div style="margin-top: 1rem">
-        <a href="https://opensource.org/licenses/MIT">
+        <a href="https://opensource.org/licenses/MIT" style="margin-left: 10px">
           <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg?color=blue" />
         </a>
-      </div>
-      <div style="margin-top: 1rem">
-        <a href="https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml">
+        <a href="https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml" style="margin-left: 10px">
             <img alt="Passes TSC checks" src="https://github.com/lundjrl/great-asset/actions/workflows/tsc.yml/badge.svg" />
         </a>
       </div>
-    </td>
- </tr>
-</table>
 </div>
 
-More info here: https://drive.google.com/drive/u/1/folders/1af3onOTX2v7sOIQcTjMO9r3A6XnZx8MW
+<!-- Relevant Links section -->
+<details>
+<summary>Relevant Links</summary>
+<ol>
+<li>
+<a href="https://sparkbusinessworks.postman.co/workspace/GA-Workspace~b8d212cc-0a2e-4e7c-a8d5-940ef5cf5f56/collection/28729570-1d13e580-4cac-456d-b939-acca422820cc?action=share&creator=28729570&active-environment=28729570-cd3ea200-137f-434a-b168-b5a53337f296" target="_blank">Postman</a>
+</li>
+<li>
+<a href="https://drive.google.com/drive/u/1/folders/1af3onOTX2v7sOIQcTjMO9r3A6XnZx8MW" target="_blank">Roadmap</a>
+</li>
+</ol>
+</details>
 
-## Table of Contents
-- [About](#-about)
-- [Documentation](#-documentation)
-- [FAQ](#frequently-asked-questions)
+<br />
+
+<!-- Table of contents section -->
+<details>
+<summary>Table of Contents</summary>
+<ol>
+<li>
+<a href="#️-about">About</a>
+</li>
+<li>
+<a href="#️-documentation">Documentation</a>
+</li>
+<li>
+<a href="#️-frequently-asked-questions">FAQ</a>
+</li>
+</ol>
+</details>
 <br />
 
 ## 🕷️ About
@@ -52,7 +64,7 @@ After creating a new model, enjoy CRUD endpoints automatically generated for you
 1. Manage your database models with API calls.
 2. CRUD your data with generated API routes.
 3. (coming soon) Generate types for your data models.
-<br />
+   <br />
 
 ## 📚 Documentation
 
