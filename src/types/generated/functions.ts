@@ -1,4 +1,5 @@
 import type { crew, duty, monster, Prisma } from '@prisma/client'
+import type { BatchPayload } from '~/types/BatchPayload'
 
 
 export type FindFirstOverload = {
@@ -35,4 +36,16 @@ export type UpdateManyOverload = {
 	(key: 'crew', dataParams: Prisma.crewUpdateManyArgs['data'], whereParams: Prisma.crewUpdateManyArgs['where']): Promise<crew[]>
 	(key: 'duty', dataParams: Prisma.dutyUpdateManyArgs['data'], whereParams: Prisma.dutyUpdateManyArgs['where']): Promise<duty[]>
 	(key: 'monster', dataParams: Prisma.monsterUpdateManyArgs['data'], whereParams: Prisma.monsterUpdateManyArgs['where']): Promise<monster[]>
+}
+
+export type DeleteOverload = {
+	(key: 'crew', params: Prisma.crewDeleteArgs['where']): Promise<crew>
+	(key: 'duty', params: Prisma.dutyDeleteArgs['where']): Promise<duty>
+	(key: 'monster', params: Prisma.monsterDeleteArgs['where']): Promise<monster>
+}
+
+export type DeleteManyOverload = {
+	(key: 'crew', params: Prisma.crewDeleteArgs['where']): Promise<BatchPayload>
+	(key: 'duty', params: Prisma.dutyDeleteArgs['where']): Promise<BatchPayload>
+	(key: 'monster', params: Prisma.monsterDeleteArgs['where']): Promise<BatchPayload>
 }

@@ -1,12 +1,10 @@
-import { BatchPayload } from '~/types/BatchPayload'
 
 import { prisma } from './init'
 
-import type { ModelName } from '~/types/ModelName'
+import type { DeleteOverload }from '~/types/generated/functions'
 
-type FN = <WhereParams>(key: ModelName, params: WhereParams) => Promise<unknown>
+export const deleteOne: DeleteOverload = async (key, params) => {
+  const response = await prisma[key].delete({ where: params })
 
-export const deleteOne: FN = async (key, params) => {
-  // @ts-expect-error TODO: Need to figure out how to type this
-  return (await prisma[key].delete({ where: params })) as BatchPayload
+  return response as ReturnType<DeleteOverload>
 }

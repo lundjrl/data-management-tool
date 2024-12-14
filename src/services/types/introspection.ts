@@ -6,7 +6,10 @@ const newLine = "\n"
 const generateImportHeader = (modelNames: typeof Prisma.ModelName): string => {
   const models = Object.keys(modelNames).join(", ")
 
-  return `import type { ${models}, Prisma } from '@prisma/client'\n`
+  let str = `import type { ${models}, Prisma } from '@prisma/client'\n`
+  str += `import type { BatchPayload } from '~/types/BatchPayload'\n`
+
+  return str
 }
 
 const generateFindFirst = (modelName: typeof Prisma.ModelName): string => {
@@ -87,6 +90,32 @@ const generateUpdateMany = (modelName: typeof Prisma.ModelName): string => {
   return str
 }
 
+const generateDelete = (modelName: typeof Prisma.ModelName): string => {
+  let str = "export type DeleteOverload = {\n"
+
+  let overloads = ""
+  for (const model in modelName) {
+    overloads += `${tab}(key: '${model}', params: Prisma.${model}DeleteArgs['where']): Promise<${model}>${newLine}`
+  }
+
+  str += `${overloads}}`
+
+  return str
+}
+
+const generateDeleteMany = (modelName: typeof Prisma.ModelName): string => {
+  let str = "export type DeleteManyOverload = {\n"
+
+  let overloads = ""
+  for (const model in modelName) {
+    overloads += `${tab}(key: '${model}', params: Prisma.${model}DeleteArgs['where']): Promise<BatchPayload>${newLine}`
+  }
+
+  str += `${overloads}}`
+
+  return str
+}
+
 /**
  * Generates types for Prisma wrapper functions and returns the result.
  */
@@ -112,6 +141,12 @@ export const introspection = async () => {
   resultString += newLine
   resultString += newLine
   resultString += generateUpdateMany(Prisma.ModelName)
+  resultString += newLine
+  resultString += newLine
+  resultString += generateDelete(Prisma.ModelName)
+  resultString += newLine
+  resultString += newLine
+  resultString += generateDeleteMany(Prisma.ModelName)
 
   const path = "./src/types/generated/functions.ts"
   await Bun.write(path, resultString)
