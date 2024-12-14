@@ -7,20 +7,12 @@ import { deleteMany } from "~/services/orm/deleteMany"
 import { findFirst } from "~/services/orm/findFirst"
 import { findMany } from "~/services/orm/findMany"
 import { update } from "~/services/orm/update"
-<<<<<<< HEAD
 import { getNumber } from "~/utils/getNumber"
 
 import type { ModelName } from "~/types/ModelName"
 
 const app = new Elysia({ prefix: "/schema" })
 
-=======
-import { type ModelName } from "~/types/ModelName"
-import { getNumber } from "~/utils/getNumber"
-
-const app = new Elysia({ prefix: "/schema" })
-
->>>>>>> c684e30 (Added type gen for create and update)
 app.get("/:collection/:id", async ({ params: { collection, id }, query }) => {
   const k = collection as ModelName
   const numId = getNumber(id)
