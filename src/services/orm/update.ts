@@ -1,17 +1,10 @@
 import { prisma } from './init'
 
-import type { ModelName } from '~/types/ModelName'
+import type {UpdateManyOverload} from '~/types/generated/functions'
 
-type FN = <T>(
-  key: ModelName,
-  id: number,
-  params: T,
-  // | Prisma.crewCreateInput
-  // | Prisma.monsterCreateInput
-  // | Prisma.dutyCreateInput
-) => Promise<unknown>
 
-export const update: FN = async (key, id, params) => {
-  // @ts-expect-error testing
-  return (await prisma[key].update({ data: params, where: { id } })) as unknown
+export const update: UpdateManyOverload = async (key, id, params) => {
+  const response = await prisma[key].update({ data: params, where: { id } })
+
+  return response
 }

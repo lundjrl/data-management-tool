@@ -1,25 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { prisma } from './init'
 
-import type { ModelName } from '~/types/ModelName'
+import type {CreateOverload} from '~/types/generated/functions'
 
-type FN = <T>(
-  key: ModelName,
-  params: T,
-  // | Prisma.crewCreateInput
-  // | Prisma.monsterCreateInput
-  // | Prisma.dutyCreateInput
-) => Promise<T>
-
-export const create: FN = async (key, params) => {
-  // @ts-expect-error TODO: Need to figure out how to type this
-  const response = (await prisma[key].create({ data: params })) as typeof params
-
-  return response
-}
-
-export const createMany: FN = async (key, params) => {
-  // @ts-expect-error TODO: Need to figure out how to type this
-  const response = (await prisma[key].createMany({ data: params })) as typeof params
-
-  return response
+export const create: CreateOverload = async (key, params) => {
+  const response = await prisma[key].create({ data: params})
+  return response as ReturnType<CreateOverload>
 }
