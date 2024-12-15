@@ -7,8 +7,9 @@ import { deleteMany } from "~/services/orm/deleteMany"
 import { findFirst } from "~/services/orm/findFirst"
 import { findMany } from "~/services/orm/findMany"
 import { update } from "~/services/orm/update"
-import { type ModelName } from "~/types/ModelName"
 import { getNumber } from "~/utils/getNumber"
+
+import type { ModelName } from "~/types/ModelName"
 
 const app = new Elysia({ prefix: "/schema" })
 

@@ -101,6 +101,12 @@ For general prisma help, run `./bun run db:help`
 
 <br />
 
+### Generating Types
+
+We're working on generating types for the API endpoints. These types can either be consumed in a custom SDK or within your project.
+
+Invoking `http://localhost:4000/orm/introspect` will return a text output of generated function types for the nested functions inside of the `schema` endpoints. We're working on extending this type generation to the outer routes.
+
 ### Running documentation
 
 Run `./documentation` to spin up the Vitepress server.
