@@ -5,5 +5,5 @@ import type { FindFirstOverload } from "~/types/generated/functions"
 export const findFirst: FindFirstOverload = async (key, params) => {
   const response = await prisma[key].findFirst(params)
 
-  return response
+  return response as ReturnType<FindFirstOverload>
 }
