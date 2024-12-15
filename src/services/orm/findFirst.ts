@@ -1,14 +1,9 @@
-import { prisma } from './init'
+import { prisma } from "./init"
 
-import type { ModelName } from '~/types/ModelName'
+import type { FindFirstOverload } from "~/types/generated/functions"
 
-type FN = <T>(
-  key: ModelName,
-  params: T,
-  // | Prisma.crewFindFirstArgs | Prisma.dutyFindFirstArgs | Prisma.monsterFindFirstArgs,
-) => Promise<unknown>
+export const findFirst: FindFirstOverload = async (key, params) => {
+  const response = await prisma[key].findFirst(params)
 
-export const findFirst: FN = async (key, params) => {
-  // @ts-expect-error TODO: Need to figure out how to type this
-  return (await prisma[key].findFirst(params)) as unknown
+  return response as ReturnType<FindFirstOverload>
 }

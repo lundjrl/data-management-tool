@@ -3,11 +3,11 @@ import stylisticJsx from '@stylistic/eslint-plugin-jsx'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 import safeql from '@ts-safeql/eslint-plugin/config'
 import parserTs from '@typescript-eslint/parser'
-// import eslintConfigPrettier from 'eslint-config-prettier'
-import _import from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import'
 import jsxA11Y from 'eslint-plugin-jsx-a11y'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unusedImports from 'eslint-plugin-unused-imports'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import globals from 'globals'
 import tsEslint from 'typescript-eslint'
 
@@ -38,8 +38,9 @@ const baseRules = {
   ],
 }
 
+
+
 const importRules = {
-  ..._import.configs.recommended.rules,
   'import/no-deprecated': ['error'],
   'import/newline-after-import': ['error'],
   'import/no-unassigned-import': ['error', { allow: ['**/*.css'] }],
@@ -119,11 +120,9 @@ const generalSettings = {
 
 const jsxA11yConfig = {
   files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
-  // ...jsxA11Y.flatConfigs.recommended,
   name: 'jsx-a11y-config',
   languageOptions: {
-    ...jsxA11Y.flatConfigs.recommended.languageOptions,
-    globals: {
+      globals: {
       ...globals.serviceworker,
       ...globals.browser,
     },
@@ -134,13 +133,15 @@ const jsxA11yConfig = {
   settings: generalSettings.settings,
 }
 
+
 const mainConfig = [
   {
     name: 'ignores-config',
     ignores: ['**/next-env.d.ts', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
   },
   // ...fixupConfigRules(compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime')),
-  _import.flatConfigs.recommended,
+  importPlugin.flatConfigs.recommended,
+  jsxA11Y.flatConfigs.recommended,
   jsxA11yConfig,
   stylistic.configs['disable-legacy'],
   {
@@ -185,7 +186,7 @@ const mainConfig = [
     languageOptions: {
       parserOptions: {
         parser: parserTs,
-        project: './tsconfig.json',
+        project: 'tsconfig.json',
         ecmaVersion: 'latest',
         ecmaFeatures: {
           jsx: true,
@@ -195,8 +196,6 @@ const mainConfig = [
     rules: { ...typescriptRules },
     settings: generalSettings.settings,
   },
-
-  // eslintConfigPrettier,
 ]
 
 export default mainConfig

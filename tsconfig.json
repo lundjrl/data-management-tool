@@ -33,6 +33,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["env.ts", "**/*.ts", "**/*.tsx", "*.json", "src"],
-  "exclude": ["node_modules", "dist", "node_modules/elysia/dist", "eslint.config.mjs"]
+  "include": ["env.ts", "**/*.ts", "**/*.tsx", "*eslint.config.mjs", "*.json", "src"],
+  "exclude": ["node_modules", "dist", "node_modules/elysia/dist"]
 }

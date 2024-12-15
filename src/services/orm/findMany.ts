@@ -1,17 +1,9 @@
+import { FindManyOverload } from '~/types/generated/functions'
+
 import { prisma } from './init'
 
-import type { ModelName } from '~/types/ModelName'
+export const findMany: FindManyOverload = async (key, params) => {
+  const response = await prisma[key].client.findMany(params)
 
-type FN = <T>(
-  key: ModelName,
-  params: T,
-  // | Prisma.crewCreateInput
-  // | Prisma.monsterCreateInput
-  // | Prisma.dutyCreateInput
-) => Promise<unknown>
-
-// TODO: Fix types here for dynamic find
-export const findMany: FN = async (key, params) => {
-  // @ts-expect-error TODO: Need to figure out how to type this
-  return (await prisma[key].findMany(params)) as unknown
+  return response as ReturnType<FindManyOverload>
 }
