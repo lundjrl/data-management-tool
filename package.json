@@ -32,7 +32,7 @@
     "@kitajs/ts-html-plugin": "^4.1.0",
     "@prisma/client": "^6.0.0",
     "@prisma/migrate": "^6.0.0",
-    "elysia": "1.1.25",
+    "elysia": "1.2.9",
     "elysia-compression": "^0.0.7",
     "prisma": "^6.0.0",
     "prisma-schema-dsl": "^2.2.0",
