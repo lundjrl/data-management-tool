@@ -2,7 +2,6 @@ import bearer from '@elysiajs/bearer'
 import { cors } from '@elysiajs/cors'
 import { swagger } from '@elysiajs/swagger'
 import { Elysia } from 'elysia'
-import { compression } from 'elysia-compression'
 
 import databaseRoutes from '~/routes/database'
 import fnRoutes from '~/routes/fn'
@@ -36,9 +35,6 @@ app.use(swagger({
 
 // Enable CORS config
 app.use(cors())
-
-// Enable compression
-app.use(compression())
 
 /**
  * Test to show endpoint

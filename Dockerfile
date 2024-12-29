@@ -3,14 +3,14 @@ FROM imbios/bun-node
 WORKDIR /app
 
 COPY package.json .
-COPY bun.lockb .
+# COPY bun.lockb .
 
-RUN bun install --production
-
-COPY src src
+COPY prisma .
+COPY src .
 COPY eslint.config.mjs .
 COPY tsconfig.json .
-# COPY public public
+
+RUN bun install --production
 
 ENV NODE_ENV production
 CMD ["bun", "src/index.ts"]

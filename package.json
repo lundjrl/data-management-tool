@@ -17,7 +17,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "lint": "eslint src",
-    "lint:fix": "bun lint --fix"
+    "lint:fix": "bun lint --fix",
+    "postinstall": "patch-package"
   },
   "prisma": {
     "seed": "bun prisma/seed.ts --target bun"
@@ -32,8 +33,9 @@
     "@kitajs/ts-html-plugin": "^4.1.0",
     "@prisma/client": "^6.0.0",
     "@prisma/migrate": "^6.0.0",
-    "elysia": "1.2.9",
-    "elysia-compression": "^0.0.7",
+    "elysia": "^1.2.9",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "prisma": "^6.0.0",
     "prisma-schema-dsl": "^2.2.0",
     "react": "^18.3.1",
