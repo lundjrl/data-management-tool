@@ -12,7 +12,6 @@
     "db:baseline": "prisma migrate diff",
     "db:migrate:resolve": "prisma migrate resolve",
     "db:help": "bun run prisma --help",
-    "predocs:dev": "typedoc",
     "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",

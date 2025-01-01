@@ -11,8 +11,8 @@ services:
 
   docs:
     image: imbios/bun-node
-    # command: bun run docs:dev
-    command: bun --version
+    command: bun run docs:dev
+    # command: bun --version
     ports:
       - ${MAPPED_DOCS_PORT:-5173}:5173
     volumes:

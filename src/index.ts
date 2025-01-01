@@ -42,7 +42,7 @@ app.use(cors())
 app.get('/schema', returnSchema)
 
 // Example parse bearer token from request.
-app.use(bearer()).get('/auth', ({ bearer }) => bearer, {
+app.use(bearer()).get('/auth', ({ bearer }) => bearer as string, {
   beforeHandle({ bearer, set }) {
     if (!bearer) {
       set.status = 400
