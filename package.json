@@ -60,7 +60,7 @@
     "@stylistic/eslint-plugin-jsx": "^2.11.0",
     "@stylistic/eslint-plugin-ts": "^2.11.0",
     "@ts-safeql/eslint-plugin": "^3.4.7",
-    "@types/react": "^18.3.12",
+    "@types/react": "^19.0.2",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
     "bun-types": "^1.1.38",
