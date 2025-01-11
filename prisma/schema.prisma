@@ -1,7 +1,7 @@
 generator client {
   provider      = "prisma-client-js"
+  output        = "../node_modules/.prisma/client"
   binaryTargets = ["native", "debian-openssl-1.1.x", "darwin"]
-  output = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -33,4 +33,11 @@ model what {
   test_col String?
 
   @@ignore
+}
+
+model cat {
+  id         Int     @id @default(autoincrement())
+  name       String  @db.VarChar(50)
+  age        String? @db.VarChar
+  coat_color String  @db.VarChar(255)
 }

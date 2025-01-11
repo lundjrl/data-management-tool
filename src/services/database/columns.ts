@@ -3,6 +3,8 @@ import { Prisma } from '@prisma/client'
 import { log } from '../logger/log'
 import { prisma } from '../orm/init'
 
+import { adjustQueryRestriction } from './helpers/stringToNumeric'
+
 import type { Alter_Table } from '~/schemas/forms/Alter_Table'
 import type { Table } from '~/schemas/forms/Table'
 
@@ -18,9 +20,11 @@ export const alterColumn: FN = async tableData => {
 
   const { name: columnName, type } = columns[0]
 
+  const restriction = adjustQueryRestriction(columnName, type)
+
   const query = `
     ALTER TABLE ${name}
-    MODIFY COLUMN ${columnName} ${type};
+    ALTER COLUMN ${columnName} TYPE ${type} ${restriction};
   `
 
   log('log', `EXECUTING QUERY: ${query}`)
@@ -45,7 +49,7 @@ export const alterBulkColumn: FN = async tableData => {
     const isLast = index === columns.length - 1
     const end = isLast ? ';' : ','
 
-    const str = `MODIFY COLUMN ${columnName} ${type}${end}`
+    const str = `ALTER COLUMN ${columnName} TYPE ${type}${end}`
     queryString = queryString.concat(str)
   })
 

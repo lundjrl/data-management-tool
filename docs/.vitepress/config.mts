@@ -1,4 +1,5 @@
-import typedocSidebar from '../api/typedoc-sidebar.json'
+// import typedocSidebar from '../api/typedoc-sidebar.json'
+import sidebar from './sidebar.mjs'
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
@@ -12,12 +13,10 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      {text: 'API', link: '/api/'}
+      {text: 'API', link: '/dmt/database/alter/column'}
     ],
 
-    sidebar: [
-      {text: 'API', items: typedocSidebar},
-    ],
+    sidebar,
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lundjrl/data-management-tool' }

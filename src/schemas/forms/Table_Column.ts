@@ -2,12 +2,14 @@ import { z } from 'zod'
 
 import { Column_Relationship_Schema } from '../Column_Relationship'
 
+import { Data_Type_Schema } from './Data_Types'
+
 // INFO: Prisma will be the source of truth for database types but this is validation to insert into a database.
 
 export const Table_Column_Schema = z.object({
   name: z.string(),
   relationship: z.optional(Column_Relationship_Schema),
-  type: z.union([z.literal('SERIAL'), z.literal('TEXT'), z.literal('VARCHAR'), z.literal('TIMESTAMP')]), // TODO: This should probably be native database types. EX: "serial PRIMARY KEY NOT NULL"
+  type: Data_Type_Schema,
   length: z.optional(z.number()),
   nullable: z.optional(z.boolean()),
   unique: z.optional(z.boolean()),

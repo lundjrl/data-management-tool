@@ -37,7 +37,7 @@ const buildQuery = (columns: Table['columns']): string => {
     const hasStringLimit = Boolean(length) ?? false
     const limit = hasStringLimit ? `(${length})` : ''
 
-    const stmt = `${type} ${limit} ${uniqueStr} ${nullStr}`
+    const stmt = `${isPrimary ? '' : type} ${limit} ${uniqueStr} ${nullStr}`
     const str = `${name} ${keyStr} ${stmt} ${endStr}`
 
     s.push(str)
