@@ -1,15 +1,15 @@
 # Creating Tables
 
-Change the datatype of a column in a database collection.
+Create a new database table.
 
-URL: `/database/alter/column`
+URL: `/database/create/table`
 
 Method: `POST`
 
 Column Data Types: `SERIAL | TEXT | VARCHAR | TIMESTAMP`
 
 #### Good to know:
-You need to set the unique field on a column in order for the system to recognize your new collection.
+You need to set the unique field on a column in order for the system to recognize your new table.
 
 ### Body:
 

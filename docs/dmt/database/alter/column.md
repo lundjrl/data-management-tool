@@ -1,6 +1,6 @@
 # Altering Columns
 
-Change the datatype of a column in a database collection.
+Change the datatype of a column in a database table.
 
 `POST` `/database/alter/column`
 
