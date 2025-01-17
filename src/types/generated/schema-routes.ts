@@ -1,3 +1,3 @@
-import type { crew, duty, monster, Prisma } from '@prisma/client'
+import type { crew, duty, monster, cat, Prisma } from '@prisma/client'
 
 
