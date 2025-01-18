@@ -32,10 +32,10 @@ app.post("/:collection", async ({ body, params: { collection } }: {body: object 
   return await create(collection, body)
 })
 
-app.patch("/:collection/:id", async ({ params: { collection, id }, query }) => {
+app.patch("/:collection/:id", async ({ body, params: { collection, id } }) => {
   const k = collection as ModelName
   const numId = getNumber(id)
-  return await update(k, numId, query)
+  return await update(k, numId, body as object)
 })
 
 app.delete("/:collection/:id", async ({ params: { collection, id } }) => {
