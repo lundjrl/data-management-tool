@@ -10,7 +10,9 @@ if ! __file_exists ".env"; then
     exit 1
 fi
 
+export UID
+
 docker compose pull || exit 1
 docker compose build || exit 1
-./bun install || exit 1
+# ./bun install || exit 1
 docker compose up || { docker compose down --remove-orphans; exit 0; }

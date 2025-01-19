@@ -1,18 +1,23 @@
 FROM imbios/bun-node
 
-WORKDIR /app
+ARG UID=1000
+
+RUN chown -R bun:bun /home/bun/app
+
+USER bun
+
+WORKDIR /home/bun/app
 
 COPY package.json .
-# COPY bun.lockb .
-
 COPY prisma .
 COPY src .
 COPY eslint.config.mjs .
 COPY tsconfig.json .
 
-RUN bun install --production
+# ENV NODE_ENV=production
 
-ENV NODE_ENV production
-CMD ["bun", "src/index.ts"]
+RUN bun install
+
+CMD ["bun", "dev"]
 
 EXPOSE 4000
