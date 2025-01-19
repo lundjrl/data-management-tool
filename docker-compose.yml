@@ -1,7 +1,9 @@
 services:
   bun:
-    image: imbios/bun-node:22-debian
-    command: bun run dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: bun:bun
     ports:
       - ${MAPPED_PORT:-4000}:4000
     volumes:
