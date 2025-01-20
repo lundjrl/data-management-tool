@@ -11,7 +11,7 @@ export const create: CreateOverload = async (key, params) => {
 
     if (!exists) { return [`Model ${key} does not exist.`, 400] }
 
-    const response = await prisma[key].create({ data: params }) as Promise<unknown>
+    const response = await prisma[key].create({ data: params })
 
     const data = response as ReturnType<CreateOverload>
 

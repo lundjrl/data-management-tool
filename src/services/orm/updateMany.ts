@@ -11,7 +11,7 @@ export const updateMany: UpdateManyOverload = async (key, dataParams, whereParam
 
     if (!exists) { return [`Model ${key} does not exist.`, 400] }
 
-    const response = await prisma[key].updateMany({ data: dataParams, where: whereParams }) as Promise<unknown>
+    const response = await prisma[key].updateMany({ data: dataParams, where: whereParams })
 
     const data = response as ReturnType<UpdateManyOverload>
 

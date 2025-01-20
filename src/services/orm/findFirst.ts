@@ -11,7 +11,7 @@ export const findFirst: FindFirstOverload = async (key, params) => {
 
     if (!exists) { return [`Model ${key} does not exist.`, 400] }
 
-    const response = await prisma[key].findFirst(params) as Promise<unknown>
+    const response = await prisma[key].findFirst(params)
 
     const data = response as ReturnType<FindFirstOverload>
 

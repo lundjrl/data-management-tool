@@ -11,7 +11,7 @@ export const deleteOne: DeleteOverload = async (key, params) => {
 
     if (!exists) { return [`Model ${key} does not exist.`, 400] }
 
-    const response = await prisma[key].delete({ where: params }) as Promise<unknown>
+    const response = await prisma[key].delete({ where: params })
 
     const data = response as ReturnType<DeleteOverload>
 
