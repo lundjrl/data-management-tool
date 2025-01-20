@@ -11,7 +11,7 @@ export const findMany: FindManyOverload = async (key, params) => {
 
     if (!exists) { return [`Model ${key} does not exist.`, 400] }
 
-    const response = await prisma[key].findMany(params) as Promise<unknown>
+    const response = await prisma[key].findMany(params)
 
     const data = response as ReturnType<FindManyOverload>
 

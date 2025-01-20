@@ -1,9 +1,24 @@
-import { UpdateManyOverload } from '~/types/generated/functions'
+import { log } from '../logger/log'
 
+import { collectionExists } from './helpers/collectionExists'
 import { prisma } from './init'
 
-export const updateMany: UpdateManyOverload = async (key, dataParams, whereParams) => {
-  const response = await prisma[key].updateMany({ data: dataParams, where: whereParams }) as Promise<unknown>
+import type { UpdateManyOverload } from '~/types/generated/functions'
 
-  return response as ReturnType<UpdateManyOverload>
+export const updateMany: UpdateManyOverload = async (key, dataParams, whereParams) => {
+  try {
+    const exists = collectionExists(key)
+
+    if (!exists) { return [`Model ${key} does not exist.`, 400] }
+
+    const response = await prisma[key].updateMany({ data: dataParams, where: whereParams }) as Promise<unknown>
+
+    const data = response as ReturnType<UpdateManyOverload>
+
+    return [data, 200]
+  }
+  catch (error) {
+    log('error', `${error as string}`)
+    return [error, 400]
+  }
 }

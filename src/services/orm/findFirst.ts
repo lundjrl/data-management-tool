@@ -18,7 +18,7 @@ export const findFirst: FindFirstOverload = async (key, params) => {
     return [data, 200]
   }
   catch (error) {
-    log('error', `${error as string}`)
+    log('error', `${error}`)
     return [error, 400]
   }
 }
