@@ -17,7 +17,9 @@ const app = new Elysia({ prefix: '/schema' })
 app.get('/:collection/:id', async ({ params: { collection, id }, query }) => {
   const k = collection as ModelName
   const numId = getNumber(id)
-  return await findFirst(k, { where: { ...query, id: numId } })
+  const res = await findFirst(k, { where: { ...query, id: numId } })
+
+  return response(res[0], res[1])
 })
 
 app.get('/:collection', async ({ params: { collection }, query }) => {
@@ -29,27 +31,37 @@ app.get('/:collection', async ({ params: { collection }, query }) => {
 
 app.post('/:collection', async ({ body, params: { collection } }: { body: object | object[], params: { collection: ModelName } }) => {
   if (Array.isArray(body)) {
-    return await createMany(collection, body)
+    const res = await createMany(collection, body)
+
+    return response(res[0], res[1])
   }
 
-  return await create(collection, body)
+  const res = await create(collection, body)
+
+  return response(res[0], res[1])
 })
 
 app.patch('/:collection/:id', async ({ body, params: { collection, id } }) => {
   const k = collection as ModelName
   const numId = getNumber(id)
-  return await update(k, numId, body as object)
+  const res = await update(k, numId, body as object)
+
+  return response(res[0], res[1])
 })
 
 app.delete('/:collection/:id', async ({ params: { collection, id } }) => {
   const k = collection as ModelName
   const numId = getNumber(id)
-  return await deleteOne(k, { id: numId })
+  const res = await deleteOne(k, { id: numId })
+
+  return response(res[0], res[1])
 })
 
 app.delete('/:collection', async ({ params: { collection }, query }) => {
   const k = collection as ModelName
-  return await deleteMany(k, query)
+  const res = await deleteMany(k, query)
+
+  return response(res[0], res[1])
 })
 
 export default app
