@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# Generated Types
+src/types/generated
+
 # testing
 /coverage
 

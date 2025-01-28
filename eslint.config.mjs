@@ -1,17 +1,11 @@
-import stylistic from '@stylistic/eslint-plugin'
-import stylisticJsx from '@stylistic/eslint-plugin-jsx'
+import antfu from '@antfu/eslint-config'
 import stylisticTs from '@stylistic/eslint-plugin-ts'
 import safeql from '@ts-safeql/eslint-plugin/config'
 import parserTs from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
-import jsxA11Y from 'eslint-plugin-jsx-a11y'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unusedImports from 'eslint-plugin-unused-imports'
-// eslint-disable-next-line import/no-extraneous-dependencies
-import globals from 'globals'
-import tsEslint from 'typescript-eslint'
 
-const a11yRules = {}
+import globals from 'globals'
 
 const baseRules = {
   'no-console': ['warn', { allow: ['error'] }],
@@ -38,8 +32,6 @@ const baseRules = {
   ],
 }
 
-
-
 const importRules = {
   'import/no-deprecated': ['error'],
   'import/newline-after-import': ['error'],
@@ -52,7 +44,6 @@ const importRules = {
   'import/no-cycle': 1,
   'import/extensions': 0,
   'import/first': 'error',
-  'import/newline-after-import': 'error',
   'import/no-duplicates': 'error',
   'simple-import-sort/exports': 'error',
   'simple-import-sort/imports': [
@@ -70,14 +61,9 @@ const importRules = {
   ],
 }
 
-const reactRules = {
-  '@stylistic/jsx/prop-types': 'off',
-  '@stylistic/jsx/no-unknown-property': 'off',
-  '@stylistic/jsx/jsx-indent': ['error', 2],
-}
-
 const typescriptRules = {
-  '@stylistic/ts/semi': ['error', 'never'],
+  'style/semi': ['error', 'never'],
+  'style/brace-style': ['off'],
   '@stylistic/ts/explicit-module-boundary-types': 'off',
   '@stylistic/ts/no-use-before-define': 'off',
   'no-useless-constructor': ['error'],
@@ -85,7 +71,6 @@ const typescriptRules = {
     'error',
     {
       vars: 'all',
-      args: 'all',
       args: 'all',
       argsIgnorePattern: '^_',
       caughtErrors: 'all',
@@ -98,13 +83,9 @@ const typescriptRules = {
   '@typescript-eslint/no-misused-promises': 'off',
 }
 
-const jsxRules = {
-  '@stylistic/jsx/jsx-indent': ['error', 2],
-}
-
 const generalSettings = {
   settings: {
-    react: {
+    'react': {
       version: 'detect',
     },
     'import/resolver': {
@@ -122,80 +103,70 @@ const jsxA11yConfig = {
   files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
   name: 'jsx-a11y-config',
   languageOptions: {
-      globals: {
+    globals: {
       ...globals.serviceworker,
       ...globals.browser,
     },
   },
-  rules: {
-    ...jsxRules,
-  },
   settings: generalSettings.settings,
 }
 
-
-const mainConfig = [
-  {
-    name: 'ignores-config',
-    ignores: ['**/next-env.d.ts', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
+const lintConfig = antfu({
+  isInEditor: false,
+  lessOpinionated: true,
+  markdown: true,
+  react: true,
+  settings: {
+    react: { version: 'detect' },
   },
-  // ...fixupConfigRules(compat.extends('plugin:react/recommended', 'plugin:react/jsx-runtime')),
-  importPlugin.flatConfigs.recommended,
-  jsxA11Y.flatConfigs.recommended,
-  jsxA11yConfig,
-  stylistic.configs['disable-legacy'],
-  {
-    name: 'legacy-config',
-    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
-    plugins: {
-      'simple-import-sort': simpleImportSort,
-      'unused-imports': unusedImports,
-      '@stylistic': stylistic,
-      '@stylistic/jsx': stylisticJsx,
-    },
-    languageOptions: {
-      globals: globals.browser,
+  stylistic: {
+    indent: 2,
+    quotes: 'single',
+    semi: false,
+    jsx: true,
+  },
+  typescript: {
+    parserOptions: {
+      parser: parserTs,
+      project: 'tsconfig.json',
       ecmaVersion: 'latest',
-      sourceType: 'module',
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
+      ecmaFeatures: {
+        jsx: true,
       },
     },
-
-    rules: {
-      ...a11yRules,
-      ...baseRules,
+    overrides: {
+      ...typescriptRules,
       ...importRules,
-      ...reactRules,
+      ...baseRules,
+      'style/indent': ['error', 2],
+      'style/no-trailing-spaces': ['error', {}],
+      'style/max-statements-per-line': ['error', { max: 2 }],
+      'react-dom/no-unknown-property': 'off',
+      'perfectionist/sort-imports': 'off',
     },
-    settings: generalSettings.settings,
   },
-  ...tsEslint.configs.recommendedTypeChecked,
-  safeql.configs.connections({
-    databaseUrl: 'postgres://postgres:postgres@localhost:5432/safeql_basic_flat_config',
-    targets: [{ tag: 'sql', transform: '{type}[]' }],
-  }),
-  {
-    name: 'typescript-config',
-    files: ['**/*.ts', '**/*.tsx'],
-    plugins: {
-      '@stylistic/ts': stylisticTs,
-    },
-    languageOptions: {
-      parserOptions: {
-        parser: parserTs,
-        project: 'tsconfig.json',
-        ecmaVersion: 'latest',
-        ecmaFeatures: {
-          jsx: true,
-        },
+  ignores: ['**/next-env.d.ts', '**/node_modules', '**/yarn**', '**/.next', 'bun.lockb'],
+}, {
+  name: 'typescript-config',
+  files: ['**/*.ts', '**/*.tsx'],
+  plugins: {
+    '@stylistic/ts': stylisticTs,
+    'simple-import-sort': simpleImportSort,
+    'unused-imports': unusedImports,
+  },
+  languageOptions: {
+    parserOptions: {
+      parser: parserTs,
+      project: 'tsconfig.json',
+      ecmaVersion: 'latest',
+      ecmaFeatures: {
+        jsx: true,
       },
     },
-    rules: { ...typescriptRules },
-    settings: generalSettings.settings,
   },
-]
+}, jsxA11yConfig, safeql.configs.connections({
+  databaseUrl: 'postgres://postgres:postgres@localhost:5432/safeql_basic_flat_config',
+  targets: [{ tag: 'sql', transform: '{type}[]' }],
+}))
 
-export default mainConfig
+export default lintConfig

@@ -1,9 +1,28 @@
-import { FindManyOverload } from '~/types/generated/functions'
+import { log } from '../logger/log'
 
+import { collectionExists } from './helpers/collectionExists'
 import { prisma } from './init'
 
-export const findMany: FindManyOverload = async (key, params) => {
-  const response = await prisma[key].findMany(params) as Promise<unknown>
+import type { ModelName } from '~/types/ModelName'
 
-  return response as ReturnType<FindManyOverload>
+type FN = (key: ModelName, params: object) => Promise<[object[], number] | [string, number]>
+
+export const findMany: FN = async (key, params) => {
+  try {
+    const exists = collectionExists(key)
+
+    if (!exists) {
+      return [`Model ${key} does not exist.`, 400]
+    }
+
+    // @ts-expect-error Loosening up type safety in favor of user DB model freedom.
+    const response = await prisma[key].findMany(params)
+
+    return [response, 200]
+  }
+  catch (error) {
+    const message = `${error}`
+    log('error', message)
+    return [message, 400]
+  }
 }
