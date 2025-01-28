@@ -9,8 +9,8 @@ Generate types for the API endpoints based on your database schema.
 
 ```json
 {
-    "status": 200,
-    "data": "Introspection complete. Please view the types under src/types/generated"
+  "status": 200,
+  "data": "Introspection complete. Please view the types under src/types/generated"
 }
 ```
 
@@ -18,10 +18,10 @@ Generate types for the API endpoints based on your database schema.
 
 ```json
 {
-    "status": 400,
-    "data": {
-      "issues": []
-    }
+  "status": 400,
+  "data": {
+    "issues": []
+  }
 }
 ```
 
@@ -49,13 +49,12 @@ export type FindFirstOverload = {
 
 ```json
 {
-    "status": 400,
-    "data": {
-      "issues": []
-    }
+  "status": 400,
+  "data": {
+    "issues": []
+  }
 }
 ```
-
 
 `GET` `/orm/introspect/routes`
 
@@ -70,9 +69,9 @@ import type { cat } from '@prisma/client'
 
 ```json
 {
-    "status": 400,
-    "data": {
-      "issues": []
-    }
+  "status": 400,
+  "data": {
+    "issues": []
+  }
 }
 ```

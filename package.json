@@ -1,7 +1,16 @@
 {
   "name": "data-management-tool",
-  "version": "1.0.6",
   "type": "module",
+  "version": "1.0.6",
+  "keywords": [
+    "Data Management Tool",
+    "Typescript",
+    "Elysia",
+    "Bun",
+    "Prisma",
+    "Nobey Net"
+  ],
+  "module": "src/index.ts",
   "scripts": {
     "dev": "bun --watch src/index.ts --target bun",
     "build": "bun build src/index.ts --target bun",
@@ -63,6 +72,7 @@
     "@stylistic/eslint-plugin-jsx": "^2.11.0",
     "@stylistic/eslint-plugin-ts": "^2.11.0",
     "@ts-safeql/eslint-plugin": "^3.4.7",
+    "@types/bun": "^1.2.1",
     "@types/react": "^18.3.12",
     "@typescript-eslint/eslint-plugin": "^8.16.0",
     "@typescript-eslint/parser": "^8.16.0",
@@ -83,14 +93,5 @@
     "typedoc-vitepress-theme": "^1.1.0",
     "typescript-eslint": "^8.16.0",
     "vitepress": "^1.5.0"
-  },
-  "module": "src/index.ts",
-  "keywords": [
-    "Data Management Tool",
-    "Typescript",
-    "Elysia",
-    "Bun",
-    "Prisma",
-    "Nobey Net"
-  ]
+  }
 }

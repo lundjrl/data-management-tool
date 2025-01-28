@@ -3,9 +3,11 @@ import { log } from '../logger/log'
 import { collectionExists } from './helpers/collectionExists'
 import { prisma } from './init'
 
-import type { UpdateOverload } from '~/types/generated/functions'
+import type { ModelName } from '~/types/ModelName'
 
-export const update: UpdateOverload = async (key, id, params) => {
+type FN = (key: ModelName, id: number, params: object) => Promise<[object, number]>
+
+export const update: FN = async (key, id, params) => {
   try {
     const exists = collectionExists(key)
 
@@ -13,9 +15,7 @@ export const update: UpdateOverload = async (key, id, params) => {
 
     const response = await prisma[key].update({ data: params, where: { id } })
 
-    const data = response as ReturnType<UpdateOverload>
-
-    return [data, 200]
+    return [response, 200]
   }
   catch (error) {
     log('error', `${error}`)

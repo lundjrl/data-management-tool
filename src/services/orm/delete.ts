@@ -3,9 +3,11 @@ import { log } from '../logger/log'
 import { collectionExists } from './helpers/collectionExists'
 import { prisma } from './init'
 
-import type { DeleteOverload } from '~/types/generated/functions'
+import type { ModelName } from '~/types/ModelName'
 
-export const deleteOne: DeleteOverload = async (key, params) => {
+type FN = (key: ModelName, params: object) => Promise<[object, number]>
+
+export const deleteOne: FN = async (key, params) => {
   try {
     const exists = collectionExists(key)
 
@@ -13,9 +15,7 @@ export const deleteOne: DeleteOverload = async (key, params) => {
 
     const response = await prisma[key].delete({ where: params })
 
-    const data = response as ReturnType<DeleteOverload>
-
-    return [data, 200]
+    return [response, 200]
   }
   catch (error) {
     log('error', `${error}`)
