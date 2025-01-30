@@ -164,6 +164,10 @@ const lintConfig = antfu({
       },
     },
   },
+  rules: {
+    'antfu/curly': 'off',
+    'curly': 'off',
+  },
 }, jsxA11yConfig, safeql.configs.connections({
   databaseUrl: 'postgres://postgres:postgres@localhost:5432/safeql_basic_flat_config',
   targets: [{ tag: 'sql', transform: '{type}[]' }],

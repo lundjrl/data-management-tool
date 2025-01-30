@@ -36,8 +36,50 @@ model what {
 }
 
 model cat {
-  id         Int     @id @default(autoincrement())
-  name       String  @db.VarChar(50)
-  age        String? @db.VarChar
-  coat_color String  @db.VarChar(255)
+  id         Int    @id @default(autoincrement())
+  name       String @db.VarChar(50)
+  age        Int?
+  coat_color String @db.VarChar(255)
+}
+
+model test_table {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
+}
+
+model test_table_two {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
+}
+
+model test_table_five {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
+}
+
+model test_table_four {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
+}
+
+model test_table_seven {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
+}
+
+model test_table_six {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
+}
+
+model test_table_three {
+  id   Int     @id @default(autoincrement())
+  name String  @db.VarChar(50)
+  age  String? @db.VarChar
 }
