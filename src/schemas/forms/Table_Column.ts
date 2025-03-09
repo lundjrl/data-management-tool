@@ -18,7 +18,7 @@ export const Table_Column_Schema = z.object({
   hidden: z.optional(z.boolean()),
   note: z.optional(z.string()),
   // validation?: 'I think it would be really cool to pass a validation object here so we can infer it?',
-  validationMessage: z.optional(z.string().describe("Validation message to throw if there's an error")),
+  validationMessage: z.optional(z.string().describe('Validation message to throw if there\'s an error')),
 })
 
 export type Table_Column_Type = z.infer<typeof Table_Column_Schema>

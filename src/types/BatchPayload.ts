@@ -1,1 +1,1 @@
-export type BatchPayload = { count: number }
+export interface BatchPayload { count: number }

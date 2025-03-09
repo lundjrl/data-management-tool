@@ -8,12 +8,12 @@ const app = new Elysia({ prefix: '/ui' })
 
 app.use(html({ autoDetect: false }))
 
-app.get('/', e => {
+app.get('/', (e) => {
   e.set.headers['Content-Type'] = 'text/html; charset=utf8'
   return Home()
 })
 
-app.get('/models', e => {
+app.get('/models', (e) => {
   e.set.headers['Content-Type'] = 'text/html; charset=utf8'
   return Models({})
 })

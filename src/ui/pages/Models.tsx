@@ -1,10 +1,9 @@
-import type {FC, ReactNode} from 'react'
+import type { FC, ReactNode } from 'react'
 
 import { Html } from '@elysiajs/html'
 
 import { CreateModel } from '../forms/CreateModel'
 import { Body } from '../layouts/Main'
-
 
 const Models: FC = () => (
   <Body>

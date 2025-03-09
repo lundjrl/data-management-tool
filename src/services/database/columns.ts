@@ -15,7 +15,7 @@ type FN = (tableData: Table) => Promise<boolean>
  * @param tableData
  * @returns boolean
  */
-export const alterColumn: FN = async tableData => {
+export const alterColumn: FN = async (tableData) => {
   const { name, columns } = tableData
 
   const { name: columnName, type } = columns[0]
@@ -39,7 +39,7 @@ export const alterColumn: FN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const alterBulkColumn: FN = async tableData => {
+export const alterBulkColumn: FN = async (tableData) => {
   const { name, columns } = tableData
 
   let queryString = ''
@@ -70,7 +70,7 @@ export const alterBulkColumn: FN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const createColumn: FN = async tableData => {
+export const createColumn: FN = async (tableData) => {
   const { name, columns } = tableData
 
   const { name: columnName, type } = columns[0]
@@ -92,7 +92,7 @@ export const createColumn: FN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const createBulkColumns: FN = async tableData => {
+export const createBulkColumns: FN = async (tableData) => {
   const { name, columns } = tableData
 
   let queryString = ''
@@ -123,7 +123,7 @@ export const createBulkColumns: FN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const deleteColumn: FN = async tableData => {
+export const deleteColumn: FN = async (tableData) => {
   const { name, columns } = tableData
 
   const { name: columnName } = columns[0]
@@ -145,7 +145,7 @@ export const deleteColumn: FN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const deleteBulkColumns: FN = async tableData => {
+export const deleteBulkColumns: FN = async (tableData) => {
   const { name, columns } = tableData
 
   let queryString = ''
@@ -178,7 +178,7 @@ type RenameFN = (tableData: Alter_Table) => Promise<boolean>
  * @param tableData
  * @returns boolean
  */
-export const renameColumn: RenameFN = async tableData => {
+export const renameColumn: RenameFN = async (tableData) => {
   const { name, columns } = tableData
 
   const { columnName, newColumnName } = columns[0]
@@ -200,7 +200,7 @@ export const renameColumn: RenameFN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const renameBulkColumns: RenameFN = async tableData => {
+export const renameBulkColumns: RenameFN = async (tableData) => {
   const { name, columns } = tableData
 
   let queryString = ''

@@ -10,13 +10,30 @@ Column Data Types: `INT | SERIAL | SMALLINT | TEXT | UUID | VARCHAR | TIMESTAMP 
 
 ```json
 {
-    "name": "cat",
-    "columns": [
-        {
-           "name": "age",
-           "type": "INT"
-        }
-    ]
+  "name": "cat",
+  "columns": [
+    {
+      "name": "age",
+      "type": "INT"
+    }
+  ]
+}
+```
+
+#### With a FK o2o relationship
+```json
+{
+  "name": "foreign_relation_column",
+  "type": "VARCHAR",
+  "nullable": true,
+  "unique": false,
+  "required": true,
+  "relationship": {
+    "foreignKeyName": "foreign_relation_column_fk",
+    "referencedTable": "another_table",
+    "referencedColumn": "table_pk_id_name",
+    "relationshipType": "o2o"
+  }
 }
 ```
 
@@ -24,8 +41,8 @@ Column Data Types: `INT | SERIAL | SMALLINT | TEXT | UUID | VARCHAR | TIMESTAMP 
 
 ```json
 {
-    "status": 200,
-    "data": true
+  "status": 200,
+  "data": true
 }
 ```
 
@@ -33,9 +50,9 @@ Column Data Types: `INT | SERIAL | SMALLINT | TEXT | UUID | VARCHAR | TIMESTAMP 
 
 ```json
 {
-    "status": 400,
-    "data": {
-      "issues": []
-    }
+  "status": 400,
+  "data": {
+    "issues": []
+  }
 }
 ```

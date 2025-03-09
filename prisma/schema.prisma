@@ -67,9 +67,10 @@ model test_table_four {
 }
 
 model test_table_seven {
-  id   Int     @id @default(autoincrement())
-  name String  @db.VarChar(50)
-  age  String? @db.VarChar
+  id               Int               @id @default(autoincrement())
+  name             String            @db.VarChar(50)
+  age              String?           @db.VarChar
+  test_table_eight test_table_eight?
 }
 
 model test_table_six {
@@ -82,4 +83,10 @@ model test_table_three {
   id   Int     @id @default(autoincrement())
   name String  @db.VarChar(50)
   age  String? @db.VarChar
+}
+
+model test_table_eight {
+  id               Int              @id @default(autoincrement())
+  name             String           @db.VarChar(50)
+  test_table_seven test_table_seven @relation(fields: [id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_test_table_seven")
 }

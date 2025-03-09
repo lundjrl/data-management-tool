@@ -18,7 +18,7 @@ export const log: FN = (type, msg) => {
       console.log(msg)
       break
     case 'json':
-      console.log(JSON.stringify(msg as string, null, 2 ))
+      console.log(JSON.stringify(msg as string, null, 2))
       break
   }
 }

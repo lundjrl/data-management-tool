@@ -4,7 +4,7 @@ const app = new Elysia()
 
 const healthResponse = 'healthy as a goat 🐐'
 
-app.get('/', () =>  healthResponse)
-app.get('/health', () =>  healthResponse)
+app.get('/', () => healthResponse)
+app.get('/health', () => healthResponse)
 
 export default app

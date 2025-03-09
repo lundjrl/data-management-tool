@@ -1,6 +1,5 @@
 import { z } from 'zod'
 
-
 export const Data_Type_Schema = z.union([
   // Numeric
   z.literal('INT'),
@@ -17,7 +16,7 @@ export const Data_Type_Schema = z.union([
 
   // Other
   z.literal('BOOLEAN'),
-  z.literal('JSON')
+  z.literal('JSON'),
 ])
 
 export type Data_Type_Type = z.infer<typeof Data_Type_Schema>

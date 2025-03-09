@@ -1,4 +1,6 @@
-import { Temp_Schema, Temp_Type } from '../schemas/Temp_Schema'
+import { Temp_Schema } from '../schemas/Temp_Schema'
+
+import type { Temp_Type } from '../schemas/Temp_Schema'
 
 /**
  * TODO: Change to return types from db schema

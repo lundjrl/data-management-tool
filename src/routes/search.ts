@@ -20,7 +20,6 @@ const search = async (query: string, filters?: string, pagination?: string) => {
 app.get('/:query', ({ params: { query } }) => search(query))
 app.get('/:query/:filters', ({ params: { query, filters } }) => search(query, filters))
 app.get('/:query/:filters/:pagination', ({ params: { query, filters, pagination } }) =>
-  search(query, filters, pagination),
-)
+  search(query, filters, pagination))
 
 export default app

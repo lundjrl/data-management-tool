@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia'
 
-import {introspectRoutes} from '~/services/types/introspect-routes'
+import { introspectRoutes } from '~/services/types/introspect-routes'
 import { introspectSchemaFunctions } from '~/services/types/introspect-schema-functions'
 import { introspection } from '~/services/types/introspection'
 

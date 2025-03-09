@@ -13,20 +13,25 @@ const buildQuery = (columns: Table['columns']): string => {
     const { length, name, nullable, relationship, type, unique } = el
 
     const isPrimary: boolean = !!relationship?.primaryKey
-    const isForeign: boolean = !!relationship?.foreignKey
+    const isForeign: boolean = !!relationship?.foreignKeyName
     const shouldHaveKeyStr: boolean = isPrimary || isForeign
 
-    const referencedColumn = relationship?.referencedColumn || ''
+    const referencedColumn = relationship?.referencedColumn || 'fuck'
     const referencedTable = relationship?.referencedTable || ''
     const constraintName = `fk_${referencedTable}`
-    const fkName = relationship?.foreignKey || ''
+    const fkName = relationship?.foreignKeyName || ''
+
+    // TODO: Do something with relationship.relationshipType
+    const foreignKeyStmt = `FOREIGN KEY(${fkName}) REFERENCES ${referencedTable}(${referencedColumn})`
+    const isOneToOne = relationship?.relationshipType === 'o2o'
+    const relationshipStr = isOneToOne ? foreignKeyStmt : ''
 
     const keyStr = shouldHaveKeyStr
       ? `${
-          isPrimary
-            ? 'SERIAL PRIMARY KEY'
-            : `CONSTRAINT ${constraintName} FOREIGN KEY(${fkName}) REFERENCES ${referencedTable}(${referencedColumn}) `
-        }`
+        isPrimary
+          ? 'SERIAL PRIMARY KEY'
+          : `CONSTRAINT ${constraintName} ${relationshipStr} `
+      }`
       : ''
 
     const uniqueStr = unique ? 'UNIQUE' : ''
@@ -37,9 +42,13 @@ const buildQuery = (columns: Table['columns']): string => {
     const hasStringLimit = Boolean(length) ?? false
     const limit = hasStringLimit ? `(${length})` : ''
 
-    const stmt = `${isPrimary ? '' : type} ${limit} ${uniqueStr} ${nullStr}`
-    const str = `${name} ${keyStr} ${stmt} ${endStr}`
+    const stmt = `${(isPrimary || isForeign) ? '' : type} ${limit} ${uniqueStr} ${nullStr}`
 
+    const prefix = isForeign ? '' : name
+    const str = `${prefix} ${keyStr} ${stmt} ${endStr}`
+    const keyColStr = `${name} ${type} ${uniqueStr} ${nullStr}`
+
+    s.push(keyColStr)
     s.push(str)
   })
 
@@ -53,7 +62,7 @@ type FN = (tableData: Table) => Promise<boolean>
  * @param tableData
  * @returns boolean
  */
-export const createTable: FN = async tableData => {
+export const createTable: FN = async (tableData) => {
   const { name, columns = [] } = tableData
 
   const queryString = buildQuery(columns)
@@ -76,7 +85,7 @@ export const createTable: FN = async tableData => {
  * @param tableData
  * @returns boolean
  */
-export const deleteTable: FN = async tableData => {
+export const deleteTable: FN = async (tableData) => {
   const { name } = tableData
 
   const query = `DROP TABLE IF EXISTS ${name}`
