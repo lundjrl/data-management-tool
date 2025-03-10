@@ -16,7 +16,7 @@ const buildQuery = (columns: Table['columns']): string => {
     const isForeign: boolean = !!relationship?.foreignKeyName
     const shouldHaveKeyStr: boolean = isPrimary || isForeign
 
-    const referencedColumn = relationship?.referencedColumn || 'fuck'
+    const referencedColumn = relationship?.referencedColumn || ''
     const referencedTable = relationship?.referencedTable || ''
     const constraintName = `fk_${referencedTable}`
     const fkName = relationship?.foreignKeyName || ''
@@ -48,7 +48,11 @@ const buildQuery = (columns: Table['columns']): string => {
     const str = `${prefix} ${keyStr} ${stmt} ${endStr}`
     const keyColStr = `${name} ${type} ${uniqueStr} ${nullStr}`
 
-    s.push(keyColStr)
+    // If foreign constraint, push new column first
+    if (isForeign) {
+      s.push(keyColStr)
+    }
+
     s.push(str)
   })
 
