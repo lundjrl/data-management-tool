@@ -74,7 +74,7 @@
     "@stylistic/eslint-plugin-ts": "^2.13.0",
     "@ts-safeql/eslint-plugin": "^3.6.7",
     "@types/bun": "^1.2.4",
-    "@types/react": "^18.3.18",
+    "@types/react": "^19.1.0",
     "@typescript-eslint/eslint-plugin": "^8.26.0",
     "@typescript-eslint/parser": "^8.26.0",
     "bun-types": "^1.2.4",
