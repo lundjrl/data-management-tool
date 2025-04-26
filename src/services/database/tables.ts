@@ -90,9 +90,11 @@ export const createTable: FN = async (tableData) => {
  * @returns boolean
  */
 export const deleteTable: FN = async (tableData) => {
-  const { name } = tableData
+  const { name, cascade = false } = tableData
 
-  const query = `DROP TABLE IF EXISTS ${name}`
+  const cascadeStr = cascade ? 'CASCADE' : ''
+
+  const query = `DROP TABLE IF EXISTS ${name} ${cascadeStr}`
 
   log('log', `EXECUTING QUERY: ${query}`)
 

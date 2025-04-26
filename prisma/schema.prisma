@@ -9,17 +9,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model crew {
-  id   Int    @id @default(autoincrement())
-  name String @unique(map: "crew_username_key") @db.VarChar(255)
-  duty duty?
-}
-
 model duty {
   id          Int     @id @default(autoincrement())
   name        String?
   crewmate_id Int     @unique
-  crew        crew    @relation(fields: [crewmate_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model monster {
@@ -33,13 +26,6 @@ model what {
   test_col String?
 
   @@ignore
-}
-
-model cat {
-  id         Int    @id @default(autoincrement())
-  name       String @db.VarChar(50)
-  age        Int?
-  coat_color String @db.VarChar(255)
 }
 
 model test_table {

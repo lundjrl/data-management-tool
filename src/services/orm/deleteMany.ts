@@ -16,7 +16,7 @@ export const deleteMany: FN = async (key, params) => {
     }
 
     // @ts-expect-error Loosening up type safety in favor of user DB model freedom.
-    const response = await prisma[key].deleteMany({ data: params })
+    const response = await prisma[key].deleteMany(params)
 
     return [response, 200]
   }
