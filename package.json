@@ -70,7 +70,7 @@
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
     "@stylistic/eslint-plugin": "^2.13.0",
-    "@stylistic/eslint-plugin-jsx": "^2.13.0",
+    "@stylistic/eslint-plugin-jsx": "^4.4.0",
     "@stylistic/eslint-plugin-ts": "^2.13.0",
     "@ts-safeql/eslint-plugin": "^3.6.7",
     "@types/bun": "^1.2.4",
